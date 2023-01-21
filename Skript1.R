@@ -1,7 +1,7 @@
 #Skript 1
 ID <- sample(120000:220000,size= 100,replace = FALSE,prob=NULL)
 #1)
-Alter <- rnorm(100, 25, 2)
+Alter <- round(rnorm(100, 25, 2))
 
 
 #2)
