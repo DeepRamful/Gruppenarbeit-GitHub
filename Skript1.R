@@ -27,7 +27,9 @@ Datensatz$InteresseProgammierung[Datensatz$Studienfach=='Statistik']<-1:2
 
 
 
+
 #5)
 Datensatz$MatheLK<- sample(c("ja","nein"),100,replace=TRUE,prob=NULL)
 Datensatz$MatheLK[Datensatz$InteresseMathematik <= 4]<-"nein"
 Datensatz$MatheLK[Datensatz$InteresseMathematik >= 5]<-"ja"
+
