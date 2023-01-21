@@ -1,4 +1,5 @@
 #Skript 1
+ID <- sample(120000:220000,100,replace = FALSE,prob=NULL)
 #1)
 Alter <- rnorm(100, 25, 5)
 
