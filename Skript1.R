@@ -1,11 +1,11 @@
 #Skript 1
-ID <- sample(120000:220000,100,replace = FALSE,prob=NULL)
+ID <- sample(120000:220000,size= 100,replace = FALSE,prob=NULL)
 #1)
-Alter <- rnorm(100, 25, 5)
+Alter <- rnorm(100, 25, 2)
 
 
 #2)
-Studienfach <- sample(c("Statistik","Data Science","Mathe","Informatik"),100,
+Studienfach <- sample(c("Statistik","Data Science","Mathe","Informatik"),size=100,
                       replace=TRUE, prob=c(0.35,0.35,0.1,0.2))
 
 
@@ -18,21 +18,16 @@ Interesse_an_Mathematik <- sample(values, size = 100, replace = TRUE)
 
 
 #4)
-Datensatz$InteresseProgammierung <- sample(1:7,100,replace=TRUE,prob=NULL)
-Datensatz$InteresseProgammierung[Datensatz$Studienfach=='Informatik']<-6:7
-Datensatz$InteresseProgammierung[Datensatz$Studienfach=='Data Science']<-4:6
-Datensatz$InteresseProgammierung[Datensatz$Studienfach=='Mathe']<-2:3
-Datensatz$InteresseProgammierung[Datensatz$Studienfach=='Statistik']<-1:2
-
-
+values <- 1:7
+Interesse_an_Programmieren <- sample(values, size = 100, replace = TRUE)
 
 
 
 
 #5)
-Datensatz$MatheLK<- sample(c("ja","nein"),100,replace=TRUE,prob=NULL)
-Datensatz$MatheLK[Datensatz$InteresseMathematik <= 4]<-"nein"
-Datensatz$MatheLK[Datensatz$InteresseMathematik >= 5]<-"ja"
+values <- c("ja", "nein") 
+eachProb <- c(0.5,0.5) 
+Mathe_LK <-  sample(values, size = 100, replace = TRUE, prob = prob)
 
 Data <- data.frame(ID,Alter,Studienfach,Interesse_an_Mathematik,Interesse_an_Programmieren,Mathe_LK)
 write.csv(Data,"C:\\Users\\Quang Huy\\Desktop\\3.Semester\\W.Arbeit\\GitHub\\Gruppenarbeit-GitHub\\Data.csv",row.names=FALSE)
