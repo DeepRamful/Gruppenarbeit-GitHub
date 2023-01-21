@@ -34,3 +34,6 @@ Datensatz$MatheLK<- sample(c("ja","nein"),100,replace=TRUE,prob=NULL)
 Datensatz$MatheLK[Datensatz$InteresseMathematik <= 4]<-"nein"
 Datensatz$MatheLK[Datensatz$InteresseMathematik >= 5]<-"ja"
 
+Data <- data.frame(ID,Alter,Studienfach,Interesse_an_Mathematik,Interesse_an_Programmieren,Mathe_LK)
+write.csv(Data,"C:\\Users\\Quang Huy\\Desktop\\3.Semester\\W.Arbeit\\GitHub\\Gruppenarbeit-GitHub\\Data.csv",row.names=FALSE)
+
