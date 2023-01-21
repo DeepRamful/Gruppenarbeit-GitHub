@@ -1,5 +1,5 @@
 "ID","Alter","Studienfach","Interesse_an_Mathematik","Interesse_an_Programmieren","Mathe_LK"
-<<<<<<< Updated upstream
+
 212179,23,"Data Science",5,1,"ja"
 131571,24,"Mathe",4,1,"nein"
 142501,26,"Data Science",2,4,"ja"
@@ -201,4 +201,3 @@
 205209,26,"Data Science",4,7,"nein"
 141959,28,"Informatik",4,1,"nein"
 166064,28,"Informatik",6,6,"ja"
->>>>>>> Stashed changes
