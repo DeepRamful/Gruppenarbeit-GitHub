@@ -2,27 +2,36 @@
 #Funktionen
 
 #a)
-#Geometrisches Mittel berechnen:
 #Create the function
-gmittel <- function(a,b){
-  x <- prod(a)^(1/b)
-  return(x)
+metfnc <- function(a,b){
+  ar <- mean(a)
+  g <- prod(a)^(1/b)
+  min <- min(a)
+  max <- max(a)
+  v <- var(a)
+  s <- sd(a)
+  return(list(ar,g,min,max,v,s))
 }
-
+  
 #Add the variable to the function
-gmittel(df$Alter,length(df$Alter))
+metfnc(df$Alter,length(df$Alter))  
+  
 
 #b)
-#Modus berechnen:
 #Create function
-modus <- function(x){
-  y <- unique(x)
-  z <- y[which.max(tabulate(match(x,y)))]
-  return(z)
+katfnc <- function(x){
+  med <- median(x)
+  q1 <- quantile(x,probs = 0.25)
+  q3 <- quantile(x,probs = 0.75)
+  v <- var(x)
+  s <- sd(x)
+  e <- unique(x)
+  mod <- e[which.max(tabulate(match(x,e)))]
+  return(list(med,q1,q3,v,s,mod))
 }
 
 #Add the variable to the function
-modus(df$Studienfach)
+katfnc(df$Interesse_an_Programmieren)
 
 
 #c)
