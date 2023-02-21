@@ -49,8 +49,30 @@ katfnc(df$Interesse_an_Programmieren)
 
 #e)
 
+# Function quantilbasierte_kategorisierung Kategorisiert Variable
+# nach "niedrig", "mittel", "hoch", wo
+# - "niedrig" - 1, 2
+# - "mittel" - 3, 4, 5
+# - "hoch" - 6, 7
+# INPUT: 
+#   data - Vector mit Merkmalauspraegungen in [1, 7]
+# OUTPUT:
+#   new_data - Vector mit Merkmalauspraegungen in ["niedrig", "mittel", "hoch"]
 
+quantilbasierte_kategorisierung <- function(data) {
+  new_data = rep("", length(data))
+  new_data[which(data == 1)] = "niedrig"
+  new_data[which(data == 2)] = "niedrig"
+  new_data[which(data == 3)] = "mittel"
+  new_data[which(data == 4)] = "mittel"
+  new_data[which(data == 5)] = "mittel"
+  new_data[which(data == 6)] = "hoch"
+  new_data[which(data == 7)] = "hoch"
+  return(new_data)
+}
 
+quant.Mathe.Ineresse <- quantilbasierte_kategorisierung(data$Interesse_an_Mathematik)
+quant.Prog.Ineresse <- quantilbasierte_kategorisierung(data$Interesse_an_Programmieren)
 
 
 #f)
