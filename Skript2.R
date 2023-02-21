@@ -71,8 +71,8 @@ quantilbasierte_kategorisierung <- function(data) {
   return(new_data)
 }
 
-quant.Mathe.Ineresse <- quantilbasierte_kategorisierung(data$Interesse_an_Mathematik)
-quant.Prog.Ineresse <- quantilbasierte_kategorisierung(data$Interesse_an_Programmieren)
+quant.Mathe.Ineresse <- quantilbasierte_kategorisierung(df$Interesse_an_Mathematik)
+quant.Prog.Ineresse <- quantilbasierte_kategorisierung(df$Interesse_an_Programmieren)
 
 
 #f)
