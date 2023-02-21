@@ -21,6 +21,8 @@ pdf("Grafiken.pdf")
 
 # Visualisierung fuer Punkt e
 
+barplot(table(quant.Mathe.Ineresse))
+barplot(table(quant.Prog.Ineresse))
 
 # Visualisierung fuer Punkt f
 
