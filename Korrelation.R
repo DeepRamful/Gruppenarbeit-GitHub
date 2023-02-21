@@ -14,7 +14,7 @@ cor.test(data$Alter, data$Interesse_an_Programmieren)
 
 cov(data$Alter, data$Interesse_an_Mathematik)
 cor(data$Alter, data$Interesse_an_Mathematik)
-cor.test(datA$Alter, data$Interesse_an_Mathematik)
+cor.test(data$Alter, data$Interesse_an_Mathematik)
 
 cov(data$Alter, data$ID)
 cor(data$Alter, data$ID)
