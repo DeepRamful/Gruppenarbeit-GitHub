@@ -42,8 +42,19 @@ katfnc(df$Interesse_an_Programmieren)
 
 
 #d)
+df$Mathe_LK<-ifelse(df$Mathe_LK=="ja",1,0)
+
+cor(df$Interesse_an_Programmieren,df$Mathe_LK)
+cor.test(df$Interesse_an_Mathematik,df$Mathe_LK)
 
 
+library(ggplot2)
+
+quantity1 <- sum(df$Mathe_LK)
+
+
+cor(df$Interesse_an_Mathematik,df$Mathe_LK)
+cor.test(df$Interesse_an_Programmieren,df$Mathe_LK)
 
 
 
