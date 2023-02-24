@@ -5,11 +5,11 @@ df <- read.csv("https://raw.githubusercontent.com/DeepRamful/Gruppenarbeit-GitHu
 #a)
 #Create the function
 metfnc <- function(data){
-  ar <- sprintf("Der Mittelwert ist: %g",mean(data$Alter))
-  g <- sprintf("Das Geometrisches Mittel ist: %g",prod(data$Alter)^(1/length(data$Alter)))
-  min <- sprintf("Der minimale Wert ist: %g",min(data$Alter))
-  max <- sprintf("Der maximale Wert ist: %g",max(data$Alter))
-  v <- sprintf("Der Varianz ist: %g",var(data$Alter))
+  ar <- sprintf("Der Mittelwert: %g",mean(data$Alter))
+  g <- sprintf("Das Geometrisches Mittel: %g",prod(data$Alter)^(1/length(data$Alter)))
+  min <- sprintf("Der minimale Wert: %g",min(data$Alter))
+  max <- sprintf("Der maximale Wert: %g",max(data$Alter))
+  v <- sprintf("Der Varianz: %g",var(data$Alter))
   s <- sprintf("Die Standardabweichung: %g",sd(data$Alter))
   return(list(ar,g,min,max,v,s))
 }
@@ -24,13 +24,13 @@ metfnc <- function(data){
 #b)
 #Create function
 katfnc <- function(data){
-  med <- sprintf("Der Median ist: %g",median(data$Interesse_an_Programmieren))
-  q1 <- sprintf("Das 0,25-Quantile ist: %1.0f",quantile(data$Interesse_an_Programmieren,probs = 0.25))
-  q3 <- sprintf("Das 0,75-Quantile ist: %1.0f",quantile(data$Interesse_an_Programmieren,probs = 0.75))
-  v <- sprintf("Der Varianz ist: %g",var(data$Interesse_an_Programmieren))
+  med <- sprintf("Der Median: %g",median(data$Interesse_an_Programmieren))
+  q1 <- sprintf("Das 0,25-Quantile: %1.0f",quantile(data$Interesse_an_Programmieren,probs = 0.25))
+  q3 <- sprintf("Das 0,75-Quantile: %1.0f",quantile(data$Interesse_an_Programmieren,probs = 0.75))
+  v <- sprintf("Der Varianz: %g",var(data$Interesse_an_Programmieren))
   s <- sprintf("Die Standardabweichung: %g",sd(data$Interesse_an_Programmieren))
   e <- unique(data$Interesse_an_Programmieren)
-  mod <- sprintf("der Modalwert ist: %g",e[which.max(tabulate(match(data$Interesse_an_Programmieren,e)))])
+  mod <- sprintf("der Modalwert: %g",e[which.max(tabulate(match(data$Interesse_an_Programmieren,e)))])
   return(list(med,q1,q3,v,s,mod))
 }
 
