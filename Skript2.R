@@ -15,7 +15,7 @@ metfnc <- function(data){
 }
 
 #Die Funktion metfnc berechnet die verschiedene geeignete deskriptive Statistiken
-#für metrische Variablen  
+#fÃ¼r metrische Variablen  
 #INPUT:
 # data - Vector mit metrischen Variablen
 #OUTPUT:
@@ -35,7 +35,7 @@ katfnc <- function(data){
 }
 
 #Die Funktion katfnc berechnet die verschiedene geeignete deskriptive Statistiken
-#für kategoriale Variablen  
+#fÃ¼r kategoriale Variablen  
 #INPUT:
 # data - Vector mit kategorialen Variablen
 #OUTPUT:
@@ -49,19 +49,21 @@ katfnc <- function(data){
 
 
 #d)
-df$Mathe_LK<-ifelse(df$Mathe_LK=="ja",1,0)
+mat<- function(data){
+ df$Mathe_LK<-ifelse(df$Mathe_LK=="ja",1,0)
+df
 
-cor(df$Interesse_an_Programmieren,df$Mathe_LK)
-cor.test(df$Interesse_an_Mathematik,df$Mathe_LK)
+#Korrelation zwsischen Mathe LK und "Interesse an Mathematik"
+corma1<-cor(df$Interesse_an_Mathematik,df$Mathe_LK)
+corma2<-cor.test(df$Interesse_an_Mathematik,df$Mathe_LK)
+#Korrelation zwsischen Mathe LK und "Interesse an Programmieren"
+corpro1<-cor(df$Interesse_an_Programmieren,df$Mathe_LK)
+corpro2<-cor.test(df$Interesse_an_Programmieren,df$Mathe_LK)
+return(list(corma1,corma2,corpro1,corpro2))
+}
 
-
-library(ggplot2)
-
-quantity1 <- sum(df$Mathe_LK)
-
-
-cor(df$Interesse_an_Mathematik,df$Mathe_LK)
-cor.test(df$Interesse_an_Programmieren,df$Mathe_LK)
+#Add the variable to the function
+mat(df$Mathe_LK) 
 
 
 
