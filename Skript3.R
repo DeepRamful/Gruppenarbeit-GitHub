@@ -17,6 +17,7 @@ pdf("Grafiken.pdf")
 
 
 # Visualisierung fuer Punkt d
+pdf("Mathe.pdf")
 
 library(ggplot2)
 quantity1 <- sum(df$Mathe_LK)
