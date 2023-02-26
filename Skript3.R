@@ -46,7 +46,7 @@ ggplot(data=data,
 
 #ggplot(df, aes(fill=Mathe_LK, y=quantity1, x=Interesse_an_Programmieren)) + 
   #geom_bar(position="stack", stat="identity")
-#___________________________________________________________________________________________________________________
+#______________________________________________________________________________________________________________
 # Visualisierung fuer Punkt e
 
 barplot(table(quant.Mathe.Ineresse))
