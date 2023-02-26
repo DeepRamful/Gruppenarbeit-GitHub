@@ -18,9 +18,6 @@ names_arg = c("ar","g","min","max","v","s"),
              horiz = TRUE)
 
 
-
-ggplot(data=data, 
-
 # Visualisierung fuer Punkt b
  
 
