@@ -60,10 +60,11 @@ katfnc <- function(data){
 kat <- function(data){ 
   #Kodierung in Studienfach
   
-  data$Studienfach[which(data$Studienfach == "Mathematik")] <- 1
+  data$Studienfach[which(data$Studienfach == "Mathe")] <- 1
   data$Studienfach[which(data$Studienfach == "Statistik")] <- 2
   data$Studienfach[which(data$Studienfach == "Data Science")] <- 3
-
+  data$Studienfach[which(data$Studienfach == "Informatik")] <- 4
+  
   #Korrelation zwischen "Studienfach" und "Interesse_an_Mathematik"
   data$Interesse_an_Mathematik <- as.numeric(data$Interesse_an_Mathematik)
   data$Interesse_an_Programmieren <- as.numeric(data$Interesse_an_Programmieren)
