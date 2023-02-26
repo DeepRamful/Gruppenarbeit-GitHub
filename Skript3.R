@@ -2,7 +2,7 @@
 # In diesem Skript werden die Daten aus dem Skript 1
 # mithilfe von allen Functionen in Skript 2 visualisiert
 
-source("Skript2.R")
+source("Funkionen-R-Skript 2.R")
 
 # speichern alle Grafiken in pdf
 pdf("Grafiken.pdf")
@@ -17,7 +17,6 @@ pdf("Grafiken.pdf")
 
 
 # Visualisierung fuer Punkt d
-pdf("Mathe.pdf")
 
 #library(ggplot2)
 #quantity1 <- sum(df$Mathe_LK)
