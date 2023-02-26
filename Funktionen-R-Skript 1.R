@@ -47,28 +47,36 @@ katfnc <- function(data){
 #-----------------------------------------------------------------------------------------------------------
 
 #c)
+#kategorische Variablen --
+#nominalskala: "Studienfach"
+#ordinalskala: "Interesse_an_Mathematik" und "Interesse_an_Programmieren"
+
 #Funktion erstellen
-#Zusammenhang also Korrelation berechnen
+
 kat <- function(data){ 
-  df
+  #Kodierung in Studienfach
+  df$Studienfach <- 
+
+#Zusammenhang also Korrelation berechnen
+ df
   #Korrelation zwischen "Studienfach" und "Interesse_an_Mathematik"
-  cor
+corsim1<-cor(df$Interesse_an_Mathematik,df$Studienfach)
+corsim2<-cor.test(df$Interesse_an_Mathematik,df$Studienfach)
   
   #Korrelation zwischen "Studienfach" und "Interesse_an_Programmieren"
+corsip1<-cor(df$Studienfach,df$Interesse_an_Programmieren)
+corsip2<-cor.test(df$Studienfach,df$Interesse_an_Programmieren)
   
   
   #korrelation zwischen "Interesse_an_Mathematik" und "Interesse_an_Programmieren"
 corin1<-cor(df$Interesse_an_Mathematik,df$Interesse_an_Programmieren)
 corin2<-cor.test(df$Interesse_an_Mathematik,df$Interesse_an_Programmieren)
   
-  
-  
-  
-  
-  return(list(corin1,corin2))
+  return(list(corsim1,corsim2,corsip1,corsip2,corin1,corin2))
+}
   
 #Diese Variable in die Funktion hinzufügen
-  
+  kat(df$Studienfach)
  
 
 
