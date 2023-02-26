@@ -2,6 +2,7 @@
 #Funktionen
 
 df <- read.csv("https://raw.githubusercontent.com/DeepRamful/Gruppenarbeit-GitHub/main/Data.csv")
+
 #a)
 #Create the function
 metfnc <- function(data){
@@ -20,6 +21,8 @@ metfnc <- function(data){
 # data - Vector mit metrischen Variablen
 #OUTPUT:
 # new data - Vector mit der Ergebnisse der Berechnungen von INPUT data
+
+#-----------------------------------------------------------------------------------------------------------
 
 #b)
 #Create function
@@ -41,12 +44,23 @@ katfnc <- function(data){
 #OUTPUT:
 # new data - Vector mit der Ergebnisse der Berechnungen von INPUT data
 
+#-----------------------------------------------------------------------------------------------------------
 
 #c)
 
 
 
 
+
+
+
+
+
+
+
+
+
+#-----------------------------------------------------------------------------------------------------------
 
 #d)
 mat<- function(data){
@@ -65,10 +79,9 @@ return(list(corma1,corma2,corpro1,corpro2))
 #Add the variable to the function
 mat(df$Mathe_LK) 
 
-
+#-----------------------------------------------------------------------------------------------------------
 
 #e)
-
 # Function quantilbasierte_kategorisierung Kategorisiert Variable
 # nach "niedrig", "mittel", "hoch", wo
 # - "niedrig" - 1, 2
@@ -94,17 +107,24 @@ quantilbasierte_kategorisierung <- function(data) {
 quant.Mathe.Ineresse <- quantilbasierte_kategorisierung(df$Interesse_an_Mathematik)
 quant.Prog.Ineresse <- quantilbasierte_kategorisierung(df$Interesse_an_Programmieren)
 
+#-----------------------------------------------------------------------------------------------------------
 
 #f)
 visualisierungKatVar <- function(data){
-  # Choose 3 categorical Variables
+  # 3 kategorische Variablen auswählen
   threeVar <- table(data$Studienfach, data$Interesse_an_Mathematik, data$Mathe_LK)
-  # Create the Mosaic Plot
+  # Mosaikplot erstellen
   mosaicplot(threeVar, main = "Studienfach, Interesse und Mathe and Mathe Lk Mosaic Plot",
            ylab = "Interesse an Mathe (7 = sehr hohes Interesse)",
            xlab = "Mathe LK(Ja/Nein)",
            col = c("blue","red"))
 }
-
+# Die Funktion visualisierungKatVar erstellt ein Mosaikdiagramm 
+# für 3 kategoriale Variablen, die aus unserem Datensatz ausgewählt wurden.
+# INPUT :
+#   Parameter data (Unser Datensatz)
+# OUTPUT :
+#   Mosaikplot für die 3 ausgewählten kategorischen Variablen
+#   d.h. Studienfach, Interesse_an_Mathematik, Mathe_LK
 
 
