@@ -1,5 +1,5 @@
 #Gruppenarbeit-GitHub
-Group members : Deep Ramful, Quang Huy Nguyen, Oleksii Khudoliei, Anastasiia Romanenko, Junyang Su
+--Group members : Deep Ramful, Quang Huy Nguyen, Oleksii Khudoliei, Anastasiia Romanenko, Junyang Su
 
 
 1.
