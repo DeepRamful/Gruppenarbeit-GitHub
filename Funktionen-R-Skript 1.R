@@ -55,7 +55,9 @@ katfnc <- function(data){
 
 kat <- function(data){ 
   #Kodierung in Studienfach
-  df$Studienfach <- 
+  df$Studienfach <- if(df$Studienfach == "Mathematik",1)
+  df$Studienfach <- if(df$Studienfach == "Statistik",2)
+  df$Studienfach <- if(df&Studienfach == "Data Science",3)
 
 #Zusammenhang also Korrelation berechnen
  df
