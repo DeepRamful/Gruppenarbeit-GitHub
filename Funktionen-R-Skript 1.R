@@ -5,6 +5,13 @@ df <- read.csv("https://raw.githubusercontent.com/DeepRamful/Gruppenarbeit-GitHu
 source("Funkionen-R-Skript 2.R")
 
 #a)
+#Die Funktion metfnc berechnet die verschiedene geeignete deskriptive Statistiken
+#für metrische Variablen  
+#INPUT:
+# data - Vector mit metrischen Variablen
+#OUTPUT:
+# new data - Vector mit der Ergebnisse der Berechnungen von INPUT data
+
 #Create the function
 metfnc <- function(data){
   ar <- sprintf("Der Mittelwert: %g",mean(data$Alter))
@@ -16,16 +23,16 @@ metfnc <- function(data){
   return(list(ar,g,min,max,v,s))
 }
 
-#Die Funktion metfnc berechnet die verschiedene geeignete deskriptive Statistiken
-#für metrische Variablen  
-#INPUT:
-# data - Vector mit metrischen Variablen
-#OUTPUT:
-# new data - Vector mit der Ergebnisse der Berechnungen von INPUT data
-
 #-----------------------------------------------------------------------------------------------------------
 
 #b)
+#Die Funktion katfnc berechnet die verschiedene geeignete deskriptive Statistiken
+#für kategoriale Variablen  
+#INPUT:
+# data - Vector mit kategorialen Variablen
+#OUTPUT:
+# new data - Vector mit der Ergebnisse der Berechnungen von INPUT data
+
 #Create function
 katfnc <- function(data){
   variable = list(data$Interesse_an_Programmieren,data$Interesse_an_Mathematik)
@@ -41,12 +48,7 @@ katfnc <- function(data){
   }
 }
 
-#Die Funktion katfnc berechnet die verschiedene geeignete deskriptive Statistiken
-#für kategoriale Variablen  
-#INPUT:
-# data - Vector mit kategorialen Variablen
-#OUTPUT:
-# new data - Vector mit der Ergebnisse der Berechnungen von INPUT data
+
 
 #-----------------------------------------------------------------------------------------------------------
 
@@ -55,8 +57,16 @@ katfnc <- function(data){
 #nominalskala: "Studienfach"
 #ordinalskala: "Interesse_an_Mathematik" und "Interesse_an_Programmieren"
 
-#Funktion erstellen
+# Die Funktion kat liefert den Korrelationskoeffizienten
+# zwischen 2 Paaren von kategorialen Variablen aus unserem Datensatz.
+# Sie verwendet auch eine Hilfsfunktion 'correlation', die 
+# in Funktionen-R-Skript 2.R
+# INPUT :
+# Parameter df (Unser Datensatz)
+# OUTPUT :
+# Korrelationskoeffizient sowie das Signifikanzniveau für jedes Paar
 
+#Funktion erstellen
 kat <- function(data){ 
   #Kodierung in Studienfach
   
@@ -84,9 +94,18 @@ corin<-correlation(data$Interesse_an_Mathematik,data$Interesse_an_Programmieren)
 }
   
 kat(df)
+
 #-----------------------------------------------------------------------------------------------------------
 
 #d)
+# Die Funktion mat gibt den Korrelationskoeffizienten
+# zwischen einer metrischen und einer kategorialen Variable.
+# Sie verwendet auch eine Hilfsfunktion 'correlation', die 
+# in Funktionen-R-Skript 2.R
+# INPUT :
+# Parameter df (Unser Datensatz)
+# OUTPUT :
+# Korrelationskoeffizient sowie das Signifikanzniveau.
 
 mat<- function(df){
   df$Mathe_LK<-ifelse(df$Mathe_LK=="ja",1,0)
@@ -134,6 +153,14 @@ quant.Prog.Ineresse <- quantilbasierte_kategorisierung(df$Interesse_an_Programmi
 #-----------------------------------------------------------------------------------------------------------
 
 #f)
+# Die Funktion visualisierungKatVar erstellt ein Mosaikdiagramm 
+# für 3 kategoriale Variablen, die aus unserem Datensatz ausgewählt wurden.
+# INPUT :
+#   Parameter data (Unser Datensatz)
+# OUTPUT :
+#   Mosaikplot für die 3 ausgewählten kategorischen Variablen
+#   d.h. Studienfach, Interesse_an_Mathematik, Mathe_LK
+
 visualisierungKatVar <- function(data){
   # 3 kategorische Variablen auswählen
   threeVar <- table(data$Studienfach, data$Interesse_an_Mathematik, data$Mathe_LK)
@@ -145,12 +172,6 @@ visualisierungKatVar <- function(data){
 }
 
 visualisierungKatVar(df)
-# Die Funktion visualisierungKatVar erstellt ein Mosaikdiagramm 
-# für 3 kategoriale Variablen, die aus unserem Datensatz ausgewählt wurden.
-# INPUT :
-#   Parameter data (Unser Datensatz)
-# OUTPUT :
-#   Mosaikplot für die 3 ausgewählten kategorischen Variablen
-#   d.h. Studienfach, Interesse_an_Mathematik, Mathe_LK
+
 
 
