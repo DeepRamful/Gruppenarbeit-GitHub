@@ -8,9 +8,21 @@ source("Funkionen-R-Skript 2.R")
 pdf("Grafiken.pdf")
 
 # Visualisierung fuer Punkt a
+pdf(file = "barplot_metrisch")
+x <- barplot(max.temp,
+main = " Deskriptive Statistik Metrische Variablen"
+xlab = "Statistiken",
+ylab = "Werte",
+names_arg = c("ar","g","min","max","v","s"),
+             col ="red",
+             horiz = TRUE)
 
+
+
+ggplot(data=data, 
 
 # Visualisierung fuer Punkt b
+ 
 
 #___________________________________________________________________________________________________________________
 # Visualisierung fuer Punkt c
