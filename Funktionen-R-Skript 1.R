@@ -49,11 +49,17 @@ katfnc <- function(data){
 #c)
 #Funktion erstellen
 #Zusammenhang also Korrelation berechnen
-zshfnc <- function(data){ 
-  getwd()
-  setwd(getwd())
-  data = read.csv
+kat <- function(data){ 
+  #Korrelation zwischen 
   
+  
+  #Korrelation zwischen
+  
+  return(list())
+  
+#Diese Variable in die Funktion hinzufügen
+  
+ 
 
 
 
