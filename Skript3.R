@@ -2,13 +2,12 @@
 # In diesem Skript werden die Daten aus dem Skript 1
 # mithilfe von allen Functionen in Skript 2 visualisiert
 
-source("Funkionen-R-Skript 2.R")
+source("Funktionen-R-Skript 1.R")
 
 # speichern alle Grafiken in pdf
 pdf("Grafiken.pdf")
 
 # Visualisierung fuer Punkt a
-pdf(file = "barplot_metrisch")
 x <- barplot(max.temp,
 main = " Deskriptive Statistik Metrische Variablen",
 xlab = "Statistiken",
@@ -19,10 +18,9 @@ names_arg = c("ar","g","min","max","v","s"),
 
 
 # Visualisierung fuer Punkt b
- pdf(file = "boxplot_kategorisch")
 
 
-#___________________________________________________________________________________________________________________
+
 # Visualisierung fuer Punkt c
 #
 #library(ggplot2)
@@ -32,7 +30,6 @@ names_arg = c("ar","g","min","max","v","s"),
 
 #ggplot(df, aes(fill=Interesse_an_Programmieren, y=quantity2, x=Studienfach)) + 
   #geom_bar(position="stack", stat="identity")
-#___________________________________________________________________________________________________________________
 
 # Visualisierung fuer Punkt d
 
@@ -44,14 +41,17 @@ names_arg = c("ar","g","min","max","v","s"),
 
 #ggplot(df, aes(fill=Mathe_LK, y=quantity1, x=Interesse_an_Programmieren)) + 
   #geom_bar(position="stack", stat="identity")
-#______________________________________________________________________________________________________________
+
 # Visualisierung fuer Punkt e
 
-barplot(table(quant.Mathe.Ineresse))
-barplot(table(quant.Prog.Ineresse))
-#___________________________________________________________________________________________________________________
-# Visualisierung fuer Punkt f
+barplot(table(quant.Mathe.Ineresse),
+        main = "Anzahl der Menschen nach Interesse an Mathematik",
+        xlab="die Höhe von Interesse", ylab="Anzahl von Menschen")
+barplot(table(quant.Prog.Ineresse), 
+        main = "Anzahl der Menschen nach Interesse an Programmierung",
+        xlab="die Höhe von Interesse", ylab="Anzahl von Menschen")
 
+# Visualisierung fuer Punkt f
+visualisierungKatVar(df)
 
 dev.off()
-#___________________________________________________________________________________________________________________
