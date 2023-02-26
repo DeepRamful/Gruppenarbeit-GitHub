@@ -60,7 +60,7 @@ kat <- function(data){
   data$Studienfach <- if(data&Studienfach == "Data Science",3)
 
 #Zusammenhang also Korrelation berechnen
- df
+ data
   #Korrelation zwischen "Studienfach" und "Interesse_an_Mathematik"
 corsim1<-cor(data$Interesse_an_Mathematik,data$Studienfach)
 corsim2<-cor.test(data$Interesse_an_Mathematik,data$Studienfach)
