@@ -55,31 +55,28 @@ katfnc <- function(data){
 
 kat <- function(data){ 
   #Kodierung in Studienfach
-  df$Studienfach <- if(df$Studienfach == "Mathematik",1)
-  df$Studienfach <- if(df$Studienfach == "Statistik",2)
-  df$Studienfach <- if(df&Studienfach == "Data Science",3)
+  data$Studienfach <- if(data$Studienfach == "Mathematik",1)
+  data$Studienfach <- if(data$Studienfach == "Statistik",2)
+  data$Studienfach <- if(data&Studienfach == "Data Science",3)
 
 #Zusammenhang also Korrelation berechnen
  df
   #Korrelation zwischen "Studienfach" und "Interesse_an_Mathematik"
-corsim1<-cor(df$Interesse_an_Mathematik,df$Studienfach)
-corsim2<-cor.test(df$Interesse_an_Mathematik,df$Studienfach)
+corsim1<-cor(data$Interesse_an_Mathematik,data$Studienfach)
+corsim2<-cor.test(data$Interesse_an_Mathematik,data$Studienfach)
   
   #Korrelation zwischen "Studienfach" und "Interesse_an_Programmieren"
-corsip1<-cor(df$Studienfach,df$Interesse_an_Programmieren)
-corsip2<-cor.test(df$Studienfach,df$Interesse_an_Programmieren)
+corsip1<-cor(data$Studienfach,data$Interesse_an_Programmieren)
+corsip2<-cor.test(data$Studienfach,data$Interesse_an_Programmieren)
   
   
   #korrelation zwischen "Interesse_an_Mathematik" und "Interesse_an_Programmieren"
-corin1<-cor(df$Interesse_an_Mathematik,df$Interesse_an_Programmieren)
-corin2<-cor.test(df$Interesse_an_Mathematik,df$Interesse_an_Programmieren)
+corin1<-cor(data$Interesse_an_Mathematik,data$Interesse_an_Programmieren)
+corin2<-cor.test(data$Interesse_an_Mathematik,data$Interesse_an_Programmieren)
   
-  return(list(corsim1,corsim2,corsip1,corsip2,corin1,corin2))
+  return(list(corsim2,corsip2,corin2))
 }
   
-#Diese Variable in die Funktion hinzufügen
-  kat(df$Studienfach)
- 
 
 
 
