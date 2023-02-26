@@ -2,6 +2,8 @@
 #Funktionen
 
 df <- read.csv("https://raw.githubusercontent.com/DeepRamful/Gruppenarbeit-GitHub/main/Data.csv")
+source("Funkionen-R-Skript 2.R")
+
 #a)
 #Create the function
 metfnc <- function(data){
@@ -21,20 +23,19 @@ metfnc <- function(data){
 #OUTPUT:
 # new data - Vector mit der Ergebnisse der Berechnungen von INPUT data
 
+#-----------------------------------------------------------------------------------------------------------
+
 #b)
 #Create function
 katfnc <- function(data){
-  variable = list(data$Interesse_an_Programmieren,data$Interesse_an_Mathematik)
-  for (i in variable){
-    med <- sprintf("Der Median: %g",median(i))
-    q1 <- sprintf("Das 0,25-Quantile: %1.0f",quantile(i,probs = 0.25))
-    q3 <- sprintf("Das 0,75-Quantile: %1.0f",quantile(i,probs = 0.75))
-    v <- sprintf("Der Varianz: %g",var(i))
-    s <- sprintf("Die Standardabweichung: %g",sd(i))
-    e <- unique(i)
-    mod <- sprintf("der Modalwert: %g",e[which.max(tabulate(match(i,e)))])
-    print(list(med,q1,q3,v,s,mod))
-  }
+  med <- sprintf("Der Median: %g",median(data$Interesse_an_Programmieren))
+  q1 <- sprintf("Das 0,25-Quantile: %1.0f",quantile(data$Interesse_an_Programmieren,probs = 0.25))
+  q3 <- sprintf("Das 0,75-Quantile: %1.0f",quantile(data$Interesse_an_Programmieren,probs = 0.75))
+  v <- sprintf("Der Varianz: %g",var(data$Interesse_an_Programmieren))
+  s <- sprintf("Die Standardabweichung: %g",sd(data$Interesse_an_Programmieren))
+  e <- unique(data$Interesse_an_Programmieren)
+  mod <- sprintf("der Modalwert: %g",e[which.max(tabulate(match(data$Interesse_an_Programmieren,e)))])
+  return(list(med,q1,q3,v,s,mod))
 }
 
 #Die Funktion katfnc berechnet die verschiedene geeignete deskriptive Statistiken
@@ -44,32 +45,70 @@ katfnc <- function(data){
 #OUTPUT:
 # new data - Vector mit der Ergebnisse der Berechnungen von INPUT data
 
+#-----------------------------------------------------------------------------------------------------------
 
 #c)
+#kategorische Variablen --
+#nominalskala: "Studienfach"
+#ordinalskala: "Interesse_an_Mathematik" und "Interesse_an_Programmieren"
+
+#Funktion erstellen
+
+kat <- function(data){ 
+  #Kodierung in Studienfach
+  
+  data$Studienfach[which(data$Studienfach == "Mathematik")] <- 1
+  data$Studienfach[which(data$Studienfach == "Statistik")] <- 2
+  data$Studienfach[which(data$Studienfach == "Data Science")] <- 3
+  
+  #Korrelation zwischen "Studienfach" und "Interesse_an_Mathematik"
+  corsim<-correlation(data$Interesse_an_Mathematik,data$Studienfach)
+  
+  
+  #Korrelation zwischen "Studienfach" und "Interesse_an_Programmieren"
+  corsip<-correlation(data$Studienfach,data$Interesse_an_Programmieren)
+  
+  
+  #korrelation zwischen "Interesse_an_Mathematik" und "Interesse_an_Programmieren"
+  corin<-correlation(data$Interesse_an_Mathematik,data$Interesse_an_Programmieren)
+  
+  return(list(corsim[2],corsip[2],corin[2]))
+}
 
 
 
 
+
+
+
+
+
+
+
+
+
+#-----------------------------------------------------------------------------------------------------------
 
 #d)
-df$Mathe_LK<-ifelse(df$Mathe_LK=="ja",1,0)
 
-cor(df$Interesse_an_Programmieren,df$Mathe_LK)
-cor.test(df$Interesse_an_Mathematik,df$Mathe_LK)
+mat<- function(df){
+  df$Mathe_LK<-ifelse(df$Mathe_LK=="ja",1,0)
+  
+  #Korrelation zwsischen Mathe LK und "Interesse an Mathematik"
+  cor_mathe <-correlation(df$Interesse_an_Mathematik,df$Mathe_LK)
+  
+  #Korrelation zwsischen Mathe LK und "Interesse an Programmieren"
+  cor_prog <- correlation(df$Interesse_an_Programmieren,df$Mathe_LK) 
+  
+  return(list(cor_mathe, cor_prog))
+}
 
+#Add the variable to the function
+print(mat(df)) 
 
-library(ggplot2)
-
-quantity1 <- sum(df$Mathe_LK)
-
-
-cor(df$Interesse_an_Mathematik,df$Mathe_LK)
-cor.test(df$Interesse_an_Programmieren,df$Mathe_LK)
-
-
+#-----------------------------------------------------------------------------------------------------------
 
 #e)
-
 # Function quantilbasierte_kategorisierung Kategorisiert Variable
 # nach "niedrig", "mittel", "hoch", wo
 # - "niedrig" - 1, 2
@@ -95,17 +134,24 @@ quantilbasierte_kategorisierung <- function(data) {
 quant.Mathe.Ineresse <- quantilbasierte_kategorisierung(df$Interesse_an_Mathematik)
 quant.Prog.Ineresse <- quantilbasierte_kategorisierung(df$Interesse_an_Programmieren)
 
+#-----------------------------------------------------------------------------------------------------------
 
 #f)
 visualisierungKatVar <- function(data){
-  # Choose 3 categorical Variables
+  # 3 kategorische Variablen auswählen
   threeVar <- table(data$Studienfach, data$Interesse_an_Mathematik, data$Mathe_LK)
-  # Create the Mosaic Plot
+  # Mosaikplot erstellen
   mosaicplot(threeVar, main = "Studienfach, Interesse und Mathe and Mathe Lk Mosaic Plot",
-           ylab = "Interesse an Mathe (7 = sehr hohes Interesse)",
-           xlab = "Mathe LK(Ja/Nein)",
-           col = c("blue","red"))
+             ylab = "Interesse an Mathe (7 = sehr hohes Interesse)",
+             xlab = "Mathe LK(Ja/Nein)",
+             col = c("blue","red"))
 }
 
-
-
+visualisierungKatVar(df)
+# Die Funktion visualisierungKatVar erstellt ein Mosaikdiagramm 
+# für 3 kategoriale Variablen, die aus unserem Datensatz ausgewählt wurden.
+# INPUT :
+#   Parameter data (Unser Datensatz)
+# OUTPUT :
+#   Mosaikplot für die 3 ausgewählten kategorischen Variablen
+#   d.h. Studienfach, Interesse_an_Mathematik, Mathe_LK
