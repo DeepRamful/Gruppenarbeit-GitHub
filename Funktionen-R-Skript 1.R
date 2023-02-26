@@ -149,6 +149,8 @@ visualisierungKatVar <- function(data){
            xlab = "Mathe LK(Ja/Nein)",
            col = c("blue","red"))
 }
+
+visualisierungKatVar(df)
 # Die Funktion visualisierungKatVar erstellt ein Mosaikdiagramm 
 # für 3 kategoriale Variablen, die aus unserem Datensatz ausgewählt wurden.
 # INPUT :
