@@ -10,7 +10,7 @@ pdf("Grafiken.pdf")
 # Visualisierung fuer Punkt a
 pdf(file = "barplot_metrisch")
 x <- barplot(max.temp,
-main = " Deskriptive Statistik Metrische Variablen"
+main = " Deskriptive Statistik Metrische Variablen",
 xlab = "Statistiken",
 ylab = "Werte",
 names_arg = c("ar","g","min","max","v","s"),
@@ -19,7 +19,8 @@ names_arg = c("ar","g","min","max","v","s"),
 
 
 # Visualisierung fuer Punkt b
- 
+ pdf(file = "boxplot_kategorisch")
+
 
 #___________________________________________________________________________________________________________________
 # Visualisierung fuer Punkt c
