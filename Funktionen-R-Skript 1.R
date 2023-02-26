@@ -50,12 +50,22 @@ katfnc <- function(data){
 #Funktion erstellen
 #Zusammenhang also Korrelation berechnen
 kat <- function(data){ 
-  #Korrelation zwischen 
+  df
+  #Korrelation zwischen "Studienfach" und "Interesse_an_Mathematik"
+  cor
+  
+  #Korrelation zwischen "Studienfach" und "Interesse_an_Programmieren"
   
   
-  #Korrelation zwischen
+  #korrelation zwischen "Interesse_an_Mathematik" und "Interesse_an_Programmieren"
+corin1<-cor(df$Interesse_an_Mathematik,df$Interesse_an_Programmieren)
+corin2<-cor.test(df$Interesse_an_Mathematik,df$Interesse_an_Programmieren)
   
-  return(list())
+  
+  
+  
+  
+  return(list(corin1,corin2))
   
 #Diese Variable in die Funktion hinzufügen
   
