@@ -155,6 +155,8 @@ quant.Prog.Ineresse <- quantilbasierte_kategorisierung(df$Interesse_an_Programmi
 #f)
 # Die Funktion visualisierungKatVar erstellt ein Mosaikdiagramm 
 # für 3 kategoriale Variablen, die aus unserem Datensatz ausgewählt wurden.
+# Einmal bezüglich des Interesses an Programmieren und einmal 
+# bezüglich des Interesses an der Mathematik
 # INPUT :
 #   Parameter data (Unser Datensatz)
 # OUTPUT :
@@ -162,14 +164,25 @@ quant.Prog.Ineresse <- quantilbasierte_kategorisierung(df$Interesse_an_Programmi
 #   d.h. Studienfach, Interesse_an_Mathematik, Mathe_LK
 
 visualisierungKatVar <- function(data){
+  
   # 3 kategorische Variablen auswählen
   threeVar <- table(data$Studienfach, data$Interesse_an_Mathematik, data$Mathe_LK)
-  # Mosaikplot erstellen
-  mosaicplot(threeVar, main = "Studienfach, Interesse und Mathe and Mathe Lk Mosaic Plot",
+  # Mosaikplot erstellen (bzgl Interesse an Mathe)
+  mosaicplot(threeVar, main = "Studienfach, Interesse an Mathe und Mathe Lk Mosaic Plot",
            ylab = "Interesse an Mathe (7 = sehr hohes Interesse)",
            xlab = "Mathe LK(Ja/Nein)",
            col = c("blue","red"))
-}
+  
+  # 3 kategorische Variablen auswählen
+  threeVar <- table(data$Studienfach, data$Interesse_an_Programmieren, data$Mathe_LK)
+  # Mosaikplot erstellen (bzgl Interesse an Programmieren)
+  mosaicplot(threeVar, main = "Studienfach, Interesse an Prog und Mathe Lk Mosaic Plot",
+           ylab = "Interesse an Prog (7 = sehr hohes Interesse)",
+           xlab = "Mathe LK(Ja/Nein)",
+           col = c("blue","red"))
+  
+  
+ }
 
 visualisierungKatVar(df)
 
