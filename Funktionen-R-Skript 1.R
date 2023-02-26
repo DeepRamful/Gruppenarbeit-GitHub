@@ -62,11 +62,15 @@ kat <- function(data){
   data$Studienfach[which(data$Studienfach == "Data Science")] <- 3
 
   #Korrelation zwischen "Studienfach" und "Interesse_an_Mathematik"
+  data$Interesse_an_Mathematik <- as.numeric(data$Interesse_an_Mathematik)
+  data$Interesse_an_Programmieren <- as.numeric(data$Interesse_an_Programmieren)
+  data$Studienfach <- as.numeric(data$Studienfach)
+
 corsim<-correlation(data$Interesse_an_Mathematik,data$Studienfach)
 
   
   #Korrelation zwischen "Studienfach" und "Interesse_an_Programmieren"
-corsip<-correlation(data$Studienfach,data$Interesse_an_Programmieren)
+corsip<-correlation(data$Studienfach, data$Interesse_an_Programmieren)
   
   
   #korrelation zwischen "Interesse_an_Mathematik" und "Interesse_an_Programmieren"
@@ -75,18 +79,7 @@ corin<-correlation(data$Interesse_an_Mathematik,data$Interesse_an_Programmieren)
   return(list(corsim[2],corsip[2],corin[2]))
 }
   
-
-
-
-
-
-
-
-
-
-
-
-
+kat(df)
 #-----------------------------------------------------------------------------------------------------------
 
 #d)
