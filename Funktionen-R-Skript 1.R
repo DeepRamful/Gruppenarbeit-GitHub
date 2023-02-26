@@ -56,9 +56,10 @@ katfnc <- function(data){
 
 kat <- function(data){ 
   #Kodierung in Studienfach
-  data$Studienfach <- if(data$Studienfach == "Mathematik",1)
-  data$Studienfach <- if(data$Studienfach == "Statistik",2)
-  data$Studienfach <- if(data$Studienfach == "Data Science",3)
+  
+  data$Studienfach[which(data$Studienfach == "Mathematik")] <- 1
+  data$Studienfach[which(data$Studienfach == "Statistik")] <- 2
+  data$Studienfach[which(data$Studienfach == "Data Science")] <- 3
 
   #Korrelation zwischen "Studienfach" und "Interesse_an_Mathematik"
 corsim<-correlation(data$Interesse_an_Mathematik,data$Studienfach)
