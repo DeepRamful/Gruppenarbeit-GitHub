@@ -19,18 +19,18 @@ pdf("Grafiken.pdf")
 # Visualisierung fuer Punkt d
 pdf("Mathe.pdf")
 
-library(ggplot2)
-quantity1 <- sum(df$Mathe_LK)
+#library(ggplot2)
+#quantity1 <- sum(df$Mathe_LK)
 
-ggplot(df, aes(fill=Mathe_LK, y=quantity1, x=Interesse_an_Mathematik)) + 
-  geom_bar(position="stack", stat="identity")
+#ggplot(df, aes(fill=Mathe_LK, y=quantity1, x=Interesse_an_Mathematik)) + 
+  #geom_bar(position="stack", stat="identity")
 
-ggplot(df, aes(fill=Mathe_LK, y=quantity1, x=Interesse_an_Programmieren)) + 
-  geom_bar(position="stack", stat="identity")
+#ggplot(df, aes(fill=Mathe_LK, y=quantity1, x=Interesse_an_Programmieren)) + 
+  #geom_bar(position="stack", stat="identity")
 # Visualisierung fuer Punkt e
 
-barplot(table(quant.Mathe.Ineresse))
-barplot(table(quant.Prog.Ineresse))
+#barplot(table(quant.Mathe.Ineresse))
+#barplot(table(quant.Prog.Ineresse))
 
 # Visualisierung fuer Punkt f
 
