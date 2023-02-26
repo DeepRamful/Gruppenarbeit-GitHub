@@ -2,6 +2,7 @@
 #Funktionen
 
 df <- read.csv("https://raw.githubusercontent.com/DeepRamful/Gruppenarbeit-GitHub/main/Data.csv")
+source("Funkionen-R-Skript 2.R")
 
 #a)
 #Create the function
@@ -57,24 +58,20 @@ kat <- function(data){
   #Kodierung in Studienfach
   data$Studienfach <- if(data$Studienfach == "Mathematik",1)
   data$Studienfach <- if(data$Studienfach == "Statistik",2)
-  data$Studienfach <- if(data&Studienfach == "Data Science",3)
+  data$Studienfach <- if(data$Studienfach == "Data Science",3)
 
-#Zusammenhang also Korrelation berechnen
- data
   #Korrelation zwischen "Studienfach" und "Interesse_an_Mathematik"
-corsim1<-cor(data$Interesse_an_Mathematik,data$Studienfach)
-corsim2<-cor.test(data$Interesse_an_Mathematik,data$Studienfach)
+corsim<-correlation(data$Interesse_an_Mathematik,data$Studienfach)
+
   
   #Korrelation zwischen "Studienfach" und "Interesse_an_Programmieren"
-corsip1<-cor(data$Studienfach,data$Interesse_an_Programmieren)
-corsip2<-cor.test(data$Studienfach,data$Interesse_an_Programmieren)
+corsip<-correlation(data$Studienfach,data$Interesse_an_Programmieren)
   
   
   #korrelation zwischen "Interesse_an_Mathematik" und "Interesse_an_Programmieren"
-corin1<-cor(data$Interesse_an_Mathematik,data$Interesse_an_Programmieren)
-corin2<-cor.test(data$Interesse_an_Mathematik,data$Interesse_an_Programmieren)
+corin<-correlation(data$Interesse_an_Mathematik,data$Interesse_an_Programmieren)
   
-  return(list(corsim2,corsip2,corin2))
+  return(list(corsim[2],corsip[2],corin[2]))
 }
   
 
@@ -92,11 +89,6 @@ corin2<-cor.test(data$Interesse_an_Mathematik,data$Interesse_an_Programmieren)
 #-----------------------------------------------------------------------------------------------------------
 
 #d)
-correlation <- function(daten1, daten2) {
-  cor <- cor(daten1, daten2)
-  cor_test <- cor.test(daten1, daten2)
-  return(c(cor, cor_test))
-}
 
 mat<- function(df){
   df$Mathe_LK<-ifelse(df$Mathe_LK=="ja",1,0)
