@@ -92,21 +92,26 @@ corin2<-cor.test(data$Interesse_an_Mathematik,data$Interesse_an_Programmieren)
 #-----------------------------------------------------------------------------------------------------------
 
 #d)
-mat<- function(data){
- df$Mathe_LK<-ifelse(df$Mathe_LK=="ja",1,0)
-df
+correlation <- function(daten1, daten2) {
+  cor <- cor(daten1, daten2)
+  cor_test <- cor.test(daten1, daten2)
+  return(c(cor, cor_test))
+}
 
-#Korrelation zwsischen Mathe LK und "Interesse an Mathematik"
-corma1<-cor(df$Interesse_an_Mathematik,df$Mathe_LK)
-corma2<-cor.test(df$Interesse_an_Mathematik,df$Mathe_LK)
-#Korrelation zwsischen Mathe LK und "Interesse an Programmieren"
-corpro1<-cor(df$Interesse_an_Programmieren,df$Mathe_LK)
-corpro2<-cor.test(df$Interesse_an_Programmieren,df$Mathe_LK)
-return(list(corma1,corma2,corpro1,corpro2))
+mat<- function(df){
+  df$Mathe_LK<-ifelse(df$Mathe_LK=="ja",1,0)
+
+  #Korrelation zwsischen Mathe LK und "Interesse an Mathematik"
+  cor_mathe <-correlation(df$Interesse_an_Mathematik,df$Mathe_LK)
+    
+  #Korrelation zwsischen Mathe LK und "Interesse an Programmieren"
+  cor_prog <- correlation(df$Interesse_an_Programmieren,df$Mathe_LK) 
+
+  return(list(cor_mathe, cor_prog))
 }
 
 #Add the variable to the function
-mat(df$Mathe_LK) 
+print(mat(df)) 
 
 #-----------------------------------------------------------------------------------------------------------
 
