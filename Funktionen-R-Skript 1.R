@@ -28,14 +28,17 @@ metfnc <- function(data){
 #b)
 #Create function
 katfnc <- function(data){
-  med <- sprintf("Der Median: %g",median(data$Interesse_an_Programmieren))
-  q1 <- sprintf("Das 0,25-Quantile: %1.0f",quantile(data$Interesse_an_Programmieren,probs = 0.25))
-  q3 <- sprintf("Das 0,75-Quantile: %1.0f",quantile(data$Interesse_an_Programmieren,probs = 0.75))
-  v <- sprintf("Der Varianz: %g",var(data$Interesse_an_Programmieren))
-  s <- sprintf("Die Standardabweichung: %g",sd(data$Interesse_an_Programmieren))
-  e <- unique(data$Interesse_an_Programmieren)
-  mod <- sprintf("der Modalwert: %g",e[which.max(tabulate(match(data$Interesse_an_Programmieren,e)))])
-  return(list(med,q1,q3,v,s,mod))
+  variable = list(data$Interesse_an_Programmieren,data$Interesse_an_Mathematik)
+  for (i in variable){
+    med <- sprintf("Der Median: %g",median(i))
+    q1 <- sprintf("Das 0,25-Quantile: %1.0f",quantile(i,probs = 0.25))
+    q3 <- sprintf("Das 0,75-Quantile: %1.0f",quantile(i,probs = 0.75))
+    v <- sprintf("Der Varianz: %g",var(i))
+    s <- sprintf("Die Standardabweichung: %g",sd(i))
+    e <- unique(i)
+    mod <- sprintf("der Modalwert: %g",e[which.max(tabulate(match(i,e)))])
+    print(list(med,q1,q3,v,s,mod))
+  }
 }
 
 #Die Funktion katfnc berechnet die verschiedene geeignete deskriptive Statistiken
