@@ -18,7 +18,6 @@ names_arg = c("ar","g","min","max","v","s"),
 
 
 # Visualisierung fuer Punkt b
-pdf(file = "boxplot_kategorisch")
 y <- boxplot(data, 
              xlab = "Interesse",
              ylab = "Werte",
