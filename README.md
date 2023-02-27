@@ -21,6 +21,5 @@ Skript3 is for part (4) of the task.
 This part was completed by Oleksii Khudoliei, Anastasiia Romanenko and Junyang Su.
 
 
-
-
+Discussions about particular questions were done in the section 'Discussion' in our repository.
 

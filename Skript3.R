@@ -2,24 +2,46 @@
 # In diesem Skript werden die Daten aus dem Skript 1
 # mithilfe von allen Functionen in Skript 2 visualisiert
 
-source("Funkionen-R-Skript 2.R")
+source("Funktionen-R-Skript 1.R")
 
 # speichern alle Grafiken in pdf
 pdf("Grafiken.pdf")
 
 # Visualisierung fuer Punkt a
+x <- barplot(max.temp,
+main = " Deskriptive Statistik Metrische Variablen",
+xlab = "Statistiken",
+ylab = "Werte",
+names_arg = c("ar","g","min","max","v","s"),
+             col ="red",
+             horiz = TRUE)
 
 
 # Visualisierung fuer Punkt b
+y <- boxplot(data, 
+             xlab = "Interesse",
+             ylab = "Werte",
+             main = "Deskriptive Statistik Kategorische Variablen"
+             notch = TRUE,
+             varwidth = TRUE,
+             col = c("yellow","red")
+             names = c("Mathe","Programmieren"))
 
 
 # Visualisierung fuer Punkt c
+#
+#library(ggplot2)
+#quantity2 <- 100
+#ggplot(df, aes(fill=Interesse_an_Mathematik, y=quantity2, x=Studienfach)) + 
+  #geom_bar(position="stack", stat="identity")
 
+#ggplot(df, aes(fill=Interesse_an_Programmieren, y=quantity2, x=Studienfach)) + 
+  #geom_bar(position="stack", stat="identity")
 
 # Visualisierung fuer Punkt d
 
 #library(ggplot2)
-#quantity1 <- sum(df$Mathe_LK)
+#quantity1 <- 100
 
 #ggplot(df, aes(fill=Mathe_LK, y=quantity1, x=Interesse_an_Mathematik)) + 
   #geom_bar(position="stack", stat="identity")
@@ -29,10 +51,14 @@ pdf("Grafiken.pdf")
 
 # Visualisierung fuer Punkt e
 
-barplot(table(quant.Mathe.Ineresse))
-barplot(table(quant.Prog.Ineresse))
+barplot(table(quant.Mathe.Ineresse),
+        main = "Anzahl der Menschen nach Interesse an Mathematik",
+        xlab="die Höhe von Interesse", ylab="Anzahl von Menschen")
+barplot(table(quant.Prog.Ineresse), 
+        main = "Anzahl der Menschen nach Interesse an Programmierung",
+        xlab="die Höhe von Interesse", ylab="Anzahl von Menschen")
 
 # Visualisierung fuer Punkt f
-
+visualisierungKatVar(df)
 
 dev.off()

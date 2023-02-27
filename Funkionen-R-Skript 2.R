@@ -1,5 +1,5 @@
-
-# Function correlation berechnet die Korrelatio  zwischen daten1 und daten2
+# Helferfunktion für Funktion (c) und (d) in Funktionen-R-Skript 1.
+# Function correlation berechnet die Korrelation zwischen daten1 und daten2
 # und ergibt die und correlation Test
 correlation <- function(daten1, daten2) {
   cor <- cor(daten1, daten2)
