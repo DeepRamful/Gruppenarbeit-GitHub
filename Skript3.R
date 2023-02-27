@@ -18,6 +18,15 @@ names_arg = c("ar","g","min","max","v","s"),
 
 
 # Visualisierung fuer Punkt b
+pdf(file = "boxplot_kategorisch")
+y <- boxplot(data, 
+             xlab = "Interesse",
+             ylab = "Werte",
+             main = "Deskriptive Statistik Kategorische Variablen"
+             notch = TRUE,
+             varwidth = TRUE,
+             col = c("yellow","red")
+             names = c("Mathe","Programmieren"))
 
 
 
