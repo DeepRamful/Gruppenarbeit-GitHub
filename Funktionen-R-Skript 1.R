@@ -9,13 +9,15 @@ source("Funkionen-R-Skript 2.R")
 #Create the function
 metfnc <- function(data){
   ar <- sprintf("Der Mittelwert: %g",mean(data$Alter))
+  med <- sprintf("Der Median: %g",median(data$Alter))
   q1 <- sprintf("Das 0,25-Quantile: %1.0f",quantile(data$Alter,probs = 0.25))
   q3 <- sprintf("Das 0,75-Quantile: %1.0f",quantile(data$Alter,probs = 0.75))
   min <- sprintf("Der minimale Wert: %g",min(data$Alter))
   max <- sprintf("Der maximale Wert: %g",max(data$Alter))
+  span<- sprintf("Die Spannweite:%g",max(data$Alter)-min(data$Alter))
   v <- sprintf("Der Varianz: %g",var(data$Alter))
   s <- sprintf("Die Standardabweichung: %g",sd(data$Alter))
-  return(list(ar,q1,q3,min,max,v,s))
+  return(list(ar,med,q1,q3,min,max,span,v,s))
 }
 
 #Die Funktion metfnc berechnet die verschiedene geeignete deskriptive Statistiken
@@ -31,14 +33,11 @@ metfnc <- function(data){
 katfnc <- function(data){
   variable = list(data$Interesse_an_Programmieren,data$Interesse_an_Mathematik)
   for (i in variable){
-    med <- sprintf("Der Median: %g",median(i))
-    q1 <- sprintf("Das 0,25-Quantile: %1.0f",quantile(i,probs = 0.25))
-    q3 <- sprintf("Das 0,75-Quantile: %1.0f",quantile(i,probs = 0.75))
-    v <- sprintf("Der Varianz: %g",var(i))
-    s <- sprintf("Die Standardabweichung: %g",sd(i))
+    freq <- table(i)
+    profreq <- prop.table(i)
     e <- unique(i)
     mod <- sprintf("der Modalwert: %g",e[which.max(tabulate(match(i,e)))])
-    print(list(med,q1,q3,v,s,mod))
+    print(list(freq,profreq,mod))
   }
 }
 
