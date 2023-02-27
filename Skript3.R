@@ -22,14 +22,14 @@ barplot(df&İnterresse_an_Mathematik,
              xlab = "Interesse",
              ylab = "Frequenz",
              main = "Frequenz fuer Interresse an Mathematik",
-             col = c("yellow")
+             col = c("yellow"),
              names = c("absfreq","relfreq","modal"))
 
 barplot(df&İnterresse_an_Programmieren, 
              xlab = "Interesse",
              ylab = "Frequenz",
              main = "Frequenz fuer Interresse an Programmieren",
-             col = c("red")
+             col = c("red"),
              names = c("absfreq","relfreq","modal"))
 
 #
