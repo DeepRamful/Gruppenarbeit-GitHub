@@ -16,7 +16,7 @@ names_arg = c("mittel","med","1/4Q","3/4Q","min","max","span"，"Var"，"S"),
              col ="red",
              horiz = TRUE)
 
-
+#
 # Visualisierung fuer Punkt b
 y <- barplot(df&İnterresse_an_Mathematik, 
              xlab = "Interesse",
@@ -32,7 +32,7 @@ z <- barplot(df&İnterresse_an_Programmieren,
              col = c("red")
              names = c("absfreq","relfreq","modal"))
 
-
+#
 # Visualisierung fuer Punkt c
 #
 #library(ggplot2)
