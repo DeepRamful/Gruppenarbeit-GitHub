@@ -8,7 +8,7 @@ source("Funktionen-R-Skript 1.R")
 pdf("Grafiken.pdf")
 
 # Visualisierung fuer Punkt a
-x <- hist(
+x <- hist(data,
 main = " Deskriptive Statistik Metrische Variablen",
 xlab = "Statistiken",
 ylab = "Werte",
@@ -22,8 +22,6 @@ y <- barplot(data,
              xlab = "Interesse",
              ylab = "Werte",
              main = "Deskriptive Statistik Kategorische Variablen"
-             notch = TRUE,
-             varwidth = TRUE,
              col = c("yellow","red")
              names = c("Mathe","Programmieren"))
 
