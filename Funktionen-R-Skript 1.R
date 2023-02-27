@@ -5,6 +5,12 @@ df <- read.csv("https://raw.githubusercontent.com/DeepRamful/Gruppenarbeit-GitHu
 source("Funkionen-R-Skript 2.R")
 
 #a)
+#Die Funktion metfnc berechnet die verschiedene geeignete deskriptive Statistiken
+#fuer metrische Variablen  
+#INPUT:
+# data - Vector mit metrischen Variablen
+#OUTPUT:
+# new data - Vector mit der Ergebnisse der Berechnungen von INPUT data
 
 #Create the function
 metfnc <- function(data){
@@ -20,15 +26,16 @@ metfnc <- function(data){
   return(list(ar,med,q1,q3,min,max,span,v,s))
 }
 
-#Die Funktion metfnc berechnet die verschiedene geeignete deskriptive Statistiken
-#fuer metrische Variablen  
-#INPUT:
-# data - Vector mit metrischen Variablen
-#OUTPUT:
-# new data - Vector mit der Ergebnisse der Berechnungen von INPUT data
 #-----------------------------------------------------------------------------------------------------------
 
 #b)
+#Die Funktion katfnc berechnet die verschiedene geeignete deskriptive Statistiken
+#fuer kategoriale Variablen  
+#INPUT:
+# data - Vector mit kategorialen Variablen
+#OUTPUT:
+# new data - Vector mit der Ergebnisse der Berechnungen von INPUT data
+
 #Create function
 katfnc <- function(data){
   variable = list(data$Interesse_an_Programmieren,data$Interesse_an_Mathematik)
@@ -40,15 +47,6 @@ katfnc <- function(data){
     print(list(freq,profreq,mod))
   }
 }
-
-
-#Die Funktion katfnc berechnet die verschiedene geeignete deskriptive Statistiken
-#fuer kategoriale Variablen  
-#INPUT:
-# data - Vector mit kategorialen Variablen
-#OUTPUT:
-# new data - Vector mit der Ergebnisse der Berechnungen von INPUT data
-
 
 #-----------------------------------------------------------------------------------------------------------
 
