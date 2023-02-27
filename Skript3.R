@@ -18,7 +18,7 @@ names_arg = c("mittel","med","1/4Q","3/4Q","min","max","span"，"Var"，"S"),
 
 
 # Visualisierung fuer Punkt b
-y <- boxplot(data, 
+y <- barplot(data, 
              xlab = "Interesse",
              ylab = "Werte",
              main = "Deskriptive Statistik Kategorische Variablen"
