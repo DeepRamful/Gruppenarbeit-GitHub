@@ -8,22 +8,29 @@ source("Funktionen-R-Skript 1.R")
 pdf("Grafiken.pdf")
 
 # Visualisierung fuer Punkt a
-x <- hist(data,
-main = " Deskriptive Statistik Metrische Variablen",
-xlab = "Statistiken",
-ylab = "Werte",
+x <- hist(df&Alter,
+main = "Histogramm fuer Alter",
+xlab = "Alter",
+ylab = "Frequenz",
 names_arg = c("mittel","med","1/4Q","3/4Q","min","max","span"，"Var"，"S"),
              col ="red",
              horiz = TRUE)
 
 
 # Visualisierung fuer Punkt b
-y <- barplot(data, 
+y <- barplot(df&İnterresse_an_Mathematik, 
              xlab = "Interesse",
-             ylab = "Werte",
-             main = "Deskriptive Statistik Kategorische Variablen"
-             col = c("yellow","red")
-             names = c("Mathe","Programmieren"))
+             ylab = "Frequenz",
+             main = "Frequenz fuer Interresse an Mathematik"
+             col = c("yellow")
+             names = c("absfreq","relfreq","modal"))
+
+z <- barplot(df&İnterresse_an_Programmieren, 
+             xlab = "Interesse",
+             ylab = "Frequenz",
+             main = "Frequenz fuer Interresse an Programmieren"
+             col = c("red")
+             names = c("absfreq","relfreq","modal"))
 
 
 # Visualisierung fuer Punkt c
