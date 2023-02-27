@@ -8,11 +8,11 @@ source("Funktionen-R-Skript 1.R")
 pdf("Grafiken.pdf")
 
 # Visualisierung fuer Punkt a
-x <- barplot(max.temp,
+x <- hist(
 main = " Deskriptive Statistik Metrische Variablen",
 xlab = "Statistiken",
 ylab = "Werte",
-names_arg = c("ar","g","min","max","v","s"),
+names_arg = c("mittel","med","1/4Q","3/4Q","min","max","span"，"Var"，"S"),
              col ="red",
              horiz = TRUE)
 
