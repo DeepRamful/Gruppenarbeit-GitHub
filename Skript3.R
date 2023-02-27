@@ -28,7 +28,6 @@ y <- boxplot(data,
              names = c("Mathe","Programmieren"))
 
 
-
 # Visualisierung fuer Punkt c
 #
 #library(ggplot2)
