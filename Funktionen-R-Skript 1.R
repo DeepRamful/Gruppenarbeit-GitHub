@@ -8,12 +8,13 @@ source("Funkionen-R-Skript 2.R")
 #Create the function
 metfnc <- function(data){
   ar <- sprintf("Der Mittelwert: %g",mean(data$Alter))
-  g <- sprintf("Das Geometrisches Mittel: %g",prod(data$Alter)^(1/length(data$Alter)))
+  q1 <- sprintf("Das 0,25-Quantile: %1.0f",quantile(data$Alter,probs = 0.25))
+  q3 <- sprintf("Das 0,75-Quantile: %1.0f",quantile(data$Alter,probs = 0.75))
   min <- sprintf("Der minimale Wert: %g",min(data$Alter))
   max <- sprintf("Der maximale Wert: %g",max(data$Alter))
   v <- sprintf("Der Varianz: %g",var(data$Alter))
   s <- sprintf("Die Standardabweichung: %g",sd(data$Alter))
-  return(list(ar,g,min,max,v,s))
+  return(list(ar,q1,q3,min,max,v,s))
 }
 
 #Die Funktion metfnc berechnet die verschiedene geeignete deskriptive Statistiken
