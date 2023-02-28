@@ -12,19 +12,8 @@ pdf("Grafiken.pdf")
 
 #
 # Visualisierung fuer Punkt b
-barplot(table(quant.Mathe.Ineresse), 
-             xlab = "Interesse",
-             ylab = "Frequenz",
-             main = "Frequenz fuer Interresse an Mathematik",
-             col = c("yellow"),
-             names = c("absfreq","relfreq","modal"))
 
-barplot(table(quant.Prog.Ineresse), 
-             xlab = "Interesse",
-             ylab = "Frequenz",
-             main = "Frequenz fuer Interresse an Programmieren",
-             col = c("red"),
-             names = c("absfreq","relfreq","modal"))
+             
 
 #
 # Visualisierung fuer Punkt c
