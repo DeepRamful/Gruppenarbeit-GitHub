@@ -13,7 +13,8 @@ boxplot(df$Alter,
      main = "Boxplot fuer Alter",
      xlab = "Alter",
      ylab = "Frequenz")
-
+# 
+Für 1/4Q 3/4Q solche Werte, ist Boxplot eine gute Plot zu Zeigen.
 # Visualisierung fuer frequencen von Interesse an Mathe und Programmierung
 
 stat_math <- katfnc(df$Interesse_an_Mathematik)
@@ -28,14 +29,14 @@ barplot(stat_prog$freq,
         xlab = "Interesse",
         ylab = "Frequenz",
         main = "Frequenz fuer Interresse an Programmieren")
-
+#Für Frequenzen ist barplot ein schöne Wahl.
 # Vergleich von Modalwerten
 
 barplot(c(stat_math$mod, stat_prog$mod), main="Modalwerte",
         ylab="Modalwert", xlab="Variablen",
         names = c("Interesse an Mathe",
                  "Interesse an Programmierung"))
-
+#Zum Vergleich zwischen beiden Werten ist auch Balkondiagramm gut zu zeigen.
 # Visualisierung von Korrelationskoeefizienten von
 # paaren von kategorialen Variablen
 
