@@ -95,7 +95,7 @@ kat(df)
 
 #d)
 # Die Funktion mat gibt den Korrelationskoeffizienten
-# zwischen einer metrischen und einer metrischen Variable.
+# zwischen einer metrischen und einer dischotomen Variable.
 # Sie verwendet auch eine Hilfsfunktion 'correlation', die 
 # in Funktionen-R-Skript 2.R
 # INPUT :
@@ -153,6 +153,7 @@ quantilbasierte_kategorisierung <- function(data) {
 # OUTPUT :
 #   Mosaikplot für die 3 ausgewählten kategorischen Variablen
 #   d.h. Studienfach, Interesse_an_Mathematik, Mathe_LK
+#  und Studienfach, Interesse_an_Programmieren, Mathe_LK
 
 visualisierungKatVar <- function(data){
   
