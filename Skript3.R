@@ -17,7 +17,7 @@ hist(df$Alter,
      horiz = TRUE)
 library(ggplot2)
 quantita <- 100
-ggplot(df, aes(fill=Alter, y=quantitya, x=df$)) + 
+ggplot(df, aes(fill=Alter, y=quantitya, x=df$)) 
   #geom_bar(position="stack", stat="identity")
 
 # Visualisierung fuer Punkt b
