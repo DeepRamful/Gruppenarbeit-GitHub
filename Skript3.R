@@ -15,10 +15,6 @@ hist(df$Alter,
      names_arg = c("mittel","med","1/4Q","3/4Q","min","max","span","Var","S"),
      col ="red",
      horiz = TRUE)
-library(ggplot2)
-quantita <- 100
-ggplot(df, aes(fill=Alter, y=quantitya, x=df$)) 
-  #geom_bar(position="stack", stat="identity")
 
 # Visualisierung fuer Punkt b
 barplot(df$İnteresse_an_Mathematik, 
@@ -27,10 +23,7 @@ barplot(df$İnteresse_an_Mathematik,
         main = "Frequenz fuer Interresse an Mathematik",
         col = c("yellow"),
         names = c("absfreq","relfreq","modal"))
-library(ggplot2)
-quantitb1 <- 100
-ggplot(df, aes(fill=Interesse_an_Mathematik, y=quantityb1, x=)) + 
-  #geom_bar(position="stack", stat="identity")
+
 barplot(df$İnteresse_an_Programmieren, 
         xlab = "Interesse",
         ylab = "Frequenz",
