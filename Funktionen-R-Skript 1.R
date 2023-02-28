@@ -112,7 +112,7 @@ mat <- function(df){
   #Korrelation zwsischen Mathe LK und "Interesse an Programmieren"
   cor_prog <- correlation(df$Interesse_an_Programmieren,df$Mathe_LK) 
 
-  return(list(cor_mathe, cor_prog))
+  return(c(cor_mathe, cor_prog))
 }
 
 #Add the variable to the function
@@ -178,6 +178,3 @@ visualisierungKatVar <- function(data){
  }
 
 visualisierungKatVar(df)
-
-
-
