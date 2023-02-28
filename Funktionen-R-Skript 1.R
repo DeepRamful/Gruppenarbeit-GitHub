@@ -2,82 +2,119 @@
 #Funktionen
 
 df <- read.csv("https://raw.githubusercontent.com/DeepRamful/Gruppenarbeit-GitHub/main/Data.csv")
+source("Funkionen-R-Skript 2.R")
 
 #a)
-#Create the function
-metfnc <- function(data){
-  ar <- sprintf("Der Mittelwert: %g",mean(data$Alter))
-  g <- sprintf("Das Geometrisches Mittel: %g",prod(data$Alter)^(1/length(data$Alter)))
-  min <- sprintf("Der minimale Wert: %g",min(data$Alter))
-  max <- sprintf("Der maximale Wert: %g",max(data$Alter))
-  v <- sprintf("Der Varianz: %g",var(data$Alter))
-  s <- sprintf("Die Standardabweichung: %g",sd(data$Alter))
-  return(list(ar,g,min,max,v,s))
-}
-
 #Die Funktion metfnc berechnet die verschiedene geeignete deskriptive Statistiken
-#für metrische Variablen  
+#fuer metrische Variablen  
 #INPUT:
 # data - Vector mit metrischen Variablen
 #OUTPUT:
 # new data - Vector mit der Ergebnisse der Berechnungen von INPUT data
 
+#Create the function
+metfnc <- function(data){
+  ar <- sprintf("Der Mittelwert: %g",mean(data$Alter))
+  med <- sprintf("Der Median: %g",median(data$Alter))
+  q1 <- sprintf("Das 0,25-Quantile: %1.0f",quantile(data$Alter,probs = 0.25))
+  q3 <- sprintf("Das 0,75-Quantile: %1.0f",quantile(data$Alter,probs = 0.75))
+  min <- sprintf("Der minimale Wert: %g",min(data$Alter))
+  max <- sprintf("Der maximale Wert: %g",max(data$Alter))
+  span<- sprintf("Die Spannweite:%g",max(data$Alter)-min(data$Alter))
+  v <- sprintf("Der Varianz: %g",var(data$Alter))
+  s <- sprintf("Die Standardabweichung: %g",sd(data$Alter))
+  return(list(ar,med,q1,q3,min,max,span,v,s))
+}
+
 #-----------------------------------------------------------------------------------------------------------
 
 #b)
-#Create function
-katfnc <- function(data){
-  med <- sprintf("Der Median: %g",median(data$Interesse_an_Programmieren))
-  q1 <- sprintf("Das 0,25-Quantile: %1.0f",quantile(data$Interesse_an_Programmieren,probs = 0.25))
-  q3 <- sprintf("Das 0,75-Quantile: %1.0f",quantile(data$Interesse_an_Programmieren,probs = 0.75))
-  v <- sprintf("Der Varianz: %g",var(data$Interesse_an_Programmieren))
-  s <- sprintf("Die Standardabweichung: %g",sd(data$Interesse_an_Programmieren))
-  e <- unique(data$Interesse_an_Programmieren)
-  mod <- sprintf("der Modalwert: %g",e[which.max(tabulate(match(data$Interesse_an_Programmieren,e)))])
-  return(list(med,q1,q3,v,s,mod))
-}
-
 #Die Funktion katfnc berechnet die verschiedene geeignete deskriptive Statistiken
-#für kategoriale Variablen  
+#fuer kategoriale Variablen  
 #INPUT:
 # data - Vector mit kategorialen Variablen
 #OUTPUT:
 # new data - Vector mit der Ergebnisse der Berechnungen von INPUT data
 
+#Create function
+katfnc <- function(data){
+  erg <- list()
+  erg$freq <- table(data)
+  e <- unique(data)
+  erg$mod <- e[which.max(tabulate(match(data,e)))]
+  return(erg)
+}
+
 #-----------------------------------------------------------------------------------------------------------
 
 #c)
+#kategorische Variablen --
+#nominalskala: "Studienfach"
+#ordinalskala: "Interesse_an_Mathematik" und "Interesse_an_Programmieren"
 
+# Die Funktion kat liefert den Korrelationskoeffizienten
+# zwischen 2 Paaren von kategorialen Variablen aus unserem Datensatz.
+# Sie verwendet auch eine Hilfsfunktion 'correlation', die 
+# in Funktionen-R-Skript 2.R
+# INPUT :
+# Parameter df (Unser Datensatz)
+# OUTPUT :
+# Korrelationskoeffizient sowie das Signifikanzniveau für jedes Paar
 
+#Funktion erstellen
+kat <- function(data){ 
+  # Erstellung von Variable damit die globale Variable nicht beeinflußt wird
+  Studienfach <- data$Studienfach
 
+  #Kodierung in Studienfach
+  Studienfach[which(Studienfach == "Mathe")] <- 1
+  Studienfach[which(Studienfach == "Statistik")] <- 2
+  Studienfach[which(Studienfach == "Data Science")] <- 3
+  Studienfach[which(Studienfach == "Informatik")] <- 4
+  
+  #Korrelation zwischen "Studienfach" und "Interesse_an_Mathematik"
+  data$Interesse_an_Mathematik <- as.numeric(data$Interesse_an_Mathematik)
+  data$Interesse_an_Programmieren <- as.numeric(data$Interesse_an_Programmieren)
+  Studienfach <- as.numeric(Studienfach)
 
+  corsim<-correlation(data$Interesse_an_Mathematik,Studienfach)
 
+  #Korrelation zwischen "Studienfach" und "Interesse_an_Programmieren"
+  corsip<-correlation(Studienfach, data$Interesse_an_Programmieren)
+  
+  
+  #korrelation zwischen "Interesse_an_Mathematik" und "Interesse_an_Programmieren"
+  corin<-correlation(data$Interesse_an_Mathematik,data$Interesse_an_Programmieren)
+  
+  return(c(corsim, corsip,corin))
+}
 
-
-
-
-
-
-
+kat(df)
 
 #-----------------------------------------------------------------------------------------------------------
 
 #d)
-mat<- function(data){
- df$Mathe_LK<-ifelse(df$Mathe_LK=="ja",1,0)
-df
+# Die Funktion mat gibt den Korrelationskoeffizienten
+# zwischen einer metrischen und einer dischotomen Variable.
+# Sie verwendet auch eine Hilfsfunktion 'correlation', die 
+# in Funktionen-R-Skript 2.R
+# INPUT :
+# Parameter df (Unser Datensatz)
+# OUTPUT :
+# Korrelationskoeffizient sowie das Signifikanzniveau.
 
-#Korrelation zwsischen Mathe LK und "Interesse an Mathematik"
-corma1<-cor(df$Interesse_an_Mathematik,df$Mathe_LK)
-corma2<-cor.test(df$Interesse_an_Mathematik,df$Mathe_LK)
-#Korrelation zwsischen Mathe LK und "Interesse an Programmieren"
-corpro1<-cor(df$Interesse_an_Programmieren,df$Mathe_LK)
-corpro2<-cor.test(df$Interesse_an_Programmieren,df$Mathe_LK)
-return(list(corma1,corma2,corpro1,corpro2))
+mat <- function(df){
+  df$Mathe_LK <-ifelse(df$Mathe_LK=="ja",1,0)
+
+  #Korrelation zwsischen Mathe LK und Alter
+  cor_Alter <- correlation(df$Alter,df$Mathe_LK)
+    
+
+  return(cor_Alter)
 }
 
 #Add the variable to the function
-mat(df$Mathe_LK) 
+mat(df)
 
 #-----------------------------------------------------------------------------------------------------------
 
@@ -104,27 +141,39 @@ quantilbasierte_kategorisierung <- function(data) {
   return(new_data)
 }
 
-quant.Mathe.Ineresse <- quantilbasierte_kategorisierung(df$Interesse_an_Mathematik)
-quant.Prog.Ineresse <- quantilbasierte_kategorisierung(df$Interesse_an_Programmieren)
-
 #-----------------------------------------------------------------------------------------------------------
 
 #f)
-visualisierungKatVar <- function(data){
-  # 3 kategorische Variablen auswählen
-  threeVar <- table(data$Studienfach, data$Interesse_an_Mathematik, data$Mathe_LK)
-  # Mosaikplot erstellen
-  mosaicplot(threeVar, main = "Studienfach, Interesse und Mathe and Mathe Lk Mosaic Plot",
-           ylab = "Interesse an Mathe (7 = sehr hohes Interesse)",
-           xlab = "Mathe LK(Ja/Nein)",
-           col = c("blue","red"))
-}
 # Die Funktion visualisierungKatVar erstellt ein Mosaikdiagramm 
 # für 3 kategoriale Variablen, die aus unserem Datensatz ausgewählt wurden.
+# Einmal bezüglich des Interesses an Programmieren und einmal 
+# bezüglich des Interesses an der Mathematik
 # INPUT :
 #   Parameter data (Unser Datensatz)
 # OUTPUT :
 #   Mosaikplot für die 3 ausgewählten kategorischen Variablen
 #   d.h. Studienfach, Interesse_an_Mathematik, Mathe_LK
+#  und Studienfach, Interesse_an_Programmieren, Mathe_LK
 
+visualisierungKatVar <- function(data){
+  
+  # 3 kategorische Variablen auswählen
+  threeVar <- table(data$Studienfach, data$Interesse_an_Mathematik, data$Mathe_LK)
+  # Mosaikplot erstellen (bzgl Interesse an Mathe)
+  mosaicplot(threeVar, main = "Studienfach, Interesse an Mathe und Mathe Lk Mosaic Plot",
+           ylab = "Interesse an Mathe (7 = sehr hohes Interesse)",
+           xlab = "Mathe LK(Ja/Nein)",
+           col = c("blue","red"))
+  
+  # 3 kategorische Variablen auswählen
+  threeVar <- table(data$Studienfach, data$Interesse_an_Programmieren, data$Mathe_LK)
+  # Mosaikplot erstellen (bzgl Interesse an Programmieren)
+  mosaicplot(threeVar, main = "Studienfach, Interesse an Prog und Mathe Lk Mosaic Plot",
+           ylab = "Interesse an Prog (7 = sehr hohes Interesse)",
+           xlab = "Mathe LK(Ja/Nein)",
+           col = c("blue","red"))
+  
+  
+ }
 
+visualisierungKatVar(df)
