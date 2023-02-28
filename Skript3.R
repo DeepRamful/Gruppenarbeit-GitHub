@@ -10,12 +10,12 @@ pdf("Grafiken.pdf")
 # Visualisierung fuer Punkt a
 
 
-#
+
 # Visualisierung fuer Punkt b
 
              
 
-#
+
 # Visualisierung fuer Punkt c
 #
 #library(ggplot2)
