@@ -47,6 +47,9 @@ barplot(table(Data$İnteresse_an_Programmieren),
 
 # Visualisierung fuer Punkt e
 
+quant.Mathe.Ineresse <- quantilbasierte_kategorisierung(df$Interesse_an_Mathematik)
+quant.Prog.Ineresse <- quantilbasierte_kategorisierung(df$Interesse_an_Programmieren)
+
 barplot(table(quant.Mathe.Ineresse),
         main = "Anzahl der Menschen nach Interesse an Mathematik",
         xlab="die Höhe von Interesse", ylab="Anzahl von Menschen")
@@ -55,6 +58,7 @@ barplot(table(quant.Prog.Ineresse),
         xlab="die Höhe von Interesse", ylab="Anzahl von Menschen")
 
 # Visualisierung fuer Punkt f
+
 visualisierungKatVar(df)
 
 dev.off()
