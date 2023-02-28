@@ -18,14 +18,14 @@ names_arg = c("mittel","med","1/4Q","3/4Q","min","max","span"，"Var"，"S"),
 
 #
 # Visualisierung fuer Punkt b
-barplot(df&İnteresse_an_Mathematik, 
+barplot(table(quant.Mathe.Ineresse), 
              xlab = "Interesse",
              ylab = "Frequenz",
              main = "Frequenz fuer Interresse an Mathematik",
              col = c("yellow"),
              names = c("absfreq","relfreq","modal"))
 
-barplot(df&İnteresse_an_Programmieren, 
+barplot(table(quant.Prog.Ineresse), 
              xlab = "Interesse",
              ylab = "Frequenz",
              main = "Frequenz fuer Interresse an Programmieren",
