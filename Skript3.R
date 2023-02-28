@@ -36,17 +36,6 @@ barplot(c(stat_math$mod, stat_prog$mod), main="Modalwerte",
         names = c("Interesse an Mathe",
                  "Interesse an Programmierung"))
 
-#quantity2 <- 100
-#ggplot(df, aes(fill=Interesse_an_Mathematik, y=quantity2, x=Studienfach)) + 
-#  geom_bar(position="stack", stat="identity")
-
-#ggplot(df, aes(fill=Interesse_an_Programmieren, y=quantity2, x=Studienfach)) + 
-#  geom_bar(position="stack", stat="identity")
-
-#                   ^
-# was ist das oben? |
-
-
 # Visualisierung von Korrelationskoeefizienten von
 # paaren von kategorialen Variablen
 
@@ -61,19 +50,6 @@ barplot(correlation_kat_daten, main="Korrelation zwischen Variablen",
         "Prog. & Studienfach",
         "Prog. & Mathe"),
         ylab="Hoehe von Korrelation", xlab="Variablen")
-
-
-#quantity1 <- 100
-
-#ggplot(df, aes(fill=Mathe_LK, y=quantity1, x=Interesse_an_Mathematik)) + 
-#  geom_bar(position="stack", stat="identity")
-
-#ggplot(df, aes(fill=Mathe_LK, y=quantity1, x=Interesse_an_Programmieren)) + 
-#  geom_bar(position="stack", stat="identity")
-
-#                   ^
-# was ist das oben? |
-
 
 # Visualisierung von Korrelation zwischen Mathrischen und kategoriale Variable
 
