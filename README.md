@@ -24,4 +24,5 @@ Die aus Skript3 erstellten Grafiken befinden sich in der Datei Grafik.pdf im Rep
 Die Beschreibungen befinden sich in einer separaten pdf-Datei namens Interpretation1.pdf, ebenfalls im Repository.
 
 
+5.
 Diskussionen über bestimmte Fragen wurden in der Sektion 'Discussion' in unserem Repository geführt
