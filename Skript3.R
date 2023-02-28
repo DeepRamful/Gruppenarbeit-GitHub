@@ -11,25 +11,18 @@ pdf("Grafiken.pdf")
 hist(Data$Alter,
      main = "Histogramm fuer Alter",
      xlab = "Alter",
-     ylab = "Frequenz",
-     names_arg = c("mittel","med","1/4Q","3/4Q","min","max","span","Var","S"),
-     col ="red",
-     horiz = TRUE)
-
+     ylab = "Frequenz")
+barplot(Data$Alter, main = "Boxplot fuer Alter")
 # Visualisierung fuer Punkt b
 barplot(table(Data$İnteresse_an_Mathematik), 
         xlab = "Interesse",
         ylab = "Frequenz",
-        main = "Frequenz fuer Interresse an Mathematik",
-        col = c("yellow"),
-        names = c("absfreq","relfreq","modal"))
+        main = "Frequenz fuer Interresse an Mathematik")
 
-barplot(tablet(Data$İnteresse_an_Programmieren), 
+barplot(table(Data$İnteresse_an_Programmieren), 
         xlab = "Interesse",
         ylab = "Frequenz",
-        main = "Frequenz fuer Interresse an Programmieren",
-        col = c("red"),
-        names = c("absfreq","relfreq","modal"))
+        main = "Frequenz fuer Interresse an Programmieren")
 
 # Visualisierung fuer Punkt c
 #
