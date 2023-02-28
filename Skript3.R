@@ -8,7 +8,7 @@ source("Funktionen-R-Skript 1.R")
 pdf("Grafiken.pdf")
 
 # Visualisierung fuer Punkt a
-hist(df$Alter,
+hist(Data$Alter,
      main = "Histogramm fuer Alter",
      xlab = "Alter",
      ylab = "Frequenz",
@@ -17,23 +17,19 @@ hist(df$Alter,
      horiz = TRUE)
 
 # Visualisierung fuer Punkt b
-barplot(df$İnteresse_an_Mathematik, 
+barplot(table(Data$İnteresse_an_Mathematik), 
         xlab = "Interesse",
         ylab = "Frequenz",
         main = "Frequenz fuer Interresse an Mathematik",
         col = c("yellow"),
         names = c("absfreq","relfreq","modal"))
 
-barplot(df$İnteresse_an_Programmieren, 
+barplot(tablet(Data$İnteresse_an_Programmieren), 
         xlab = "Interesse",
         ylab = "Frequenz",
         main = "Frequenz fuer Interresse an Programmieren",
         col = c("red"),
         names = c("absfreq","relfreq","modal"))
-library(ggplot2)
-quantitb2 <- 100
-ggplot(df, aes(fill=Interesse_an_Programmierung, y=quantityb2, x=)) + 
-  #geom_bar(position="stack", stat="identity")
 
 # Visualisierung fuer Punkt c
 #
