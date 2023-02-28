@@ -13,8 +13,8 @@ boxplot(df$Alter,
      main = "Boxplot fuer Alter",
      xlab = "Alter",
      ylab = "Frequenz")
-# 
-Für 1/4Q 3/4Q solche Werte, ist Boxplot eine gute Plot zu Zeigen.
+
+#Für 1/4Q 3/4Q solche Werte, ist Boxplot eine gute Plot zu Zeigen.
 # Visualisierung fuer frequencen von Interesse an Mathe und Programmierung
 
 stat_math <- katfnc(df$Interesse_an_Mathematik)
