@@ -107,14 +107,14 @@ mat <- function(df){
   df$Mathe_LK <-ifelse(df$Mathe_LK=="ja",1,0)
 
   #Korrelation zwsischen Mathe LK und Alter
-  cor_Alte <- correlation(df$Alter,df$Mathe_LK)
+  cor_Alter <- correlation(df$Alter,df$Mathe_LK)
     
 
-  return(c(cor_Alte))
+  return(cor_Alter)
 }
 
 #Add the variable to the function
-mat(df) 
+mat(df)
 
 #-----------------------------------------------------------------------------------------------------------
 

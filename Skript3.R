@@ -41,30 +41,19 @@ barplot(c(stat_math$mod, stat_prog$mod), main="Modalwerte",
 # paaren von kategorialen Variablen
 
 correlation_kat_variablen <- kat(df)
+korrelation_met_kat <- mat(df)
 
 correlation_kat_daten <- unlist(c(correlation_kat_variablen[1],
                             correlation_kat_variablen[3],
-                            correlation_kat_variablen[5]))
+                            correlation_kat_variablen[5],
+                            korrelation_met_kat[1]))
 
 barplot(correlation_kat_daten, main="Korrelation zwischen Variablen",
-        names=c("Mathe & Studienfach",
-        "Prog. & Studienfach",
-        "Prog. & Mathe"),
+        names=c("Mathe & Stud.",
+        "Prog. & Stud.",
+        "Prog. & Mathe",
+        "Alter & Math_LK"),
         ylab="Hoehe von Korrelation", xlab="Variablen")
-
-# Visualisierung von Korrelation zwischen Mathrischen und kategoriale Variable
-
-korrelation_met_kat <- mat(df)
-
-korrelation_met_kat_daten <- unlist(c(korrelation_met_kat[1],
-                            korrelation_met_kat[3]))
-
-
-barplot(korrelation_met_kat_daten, main="Korrelation zwischen Variablen",
-        names=c("Mathe & Mathe_LK",
-        "Prog. & Mathe_LK"),
-        ylab="Hoehe von Korrelation", xlab="Variablen")
-
 
 # Visualisierung von quntibasierte Kategorisierung von
 # Interesse an Mathematik und Interesse an Programmierung
