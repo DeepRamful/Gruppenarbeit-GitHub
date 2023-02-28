@@ -1,28 +1,27 @@
 #Gruppenarbeit-GitHub
---Group members : Deep Ramful, Quang Huy Nguyen, Oleksii Khudoliei, Anastasiia Romanenko, Junyang Su
+--Gruppenmitglieder : Deep Ramful, Quang Huy Nguyen(Huyizii), Oleksii Khudoliei(Vakfoo), Anastasiia Romanenko, Junyang Su(Jungangyoung)
 
 
 1.
-Skript1 is for part (1) of the task.
-That is, defining the variables.
-This part was completed by Deep Ramful and Quang Huy Nguyen.
+Skript1 ist für Teil (1) der Aufgabe.
+Das heißt, die Definition der Variablen.
+Dieser Teil wurde von Deep Ramful und Quang Huy Nguyen bearbeitet.
 
 2.
-Data.csv is the dataset created and is for part (2) of the task.
+Data.csv ist der erstellte Datensatz, der für Teil (2) der Aufgabe benötigt wird.
 
 
 3.
-Funktionen-R-Skript 1 and Funktionen-R-Skript 2 are for part (3) of the task.
-That is, for the functions and helper functions respectively.
-This part was completed by the whole group.
+Funktionen-R-Skript 1 und Funktionen-R-Skript 2 sind für Teil (3) der Aufgabe.
+Das heißt, für die Funktionen bzw. Hilfsfunktionen.
+Dieser Teil wurde von der gesamten Gruppe ausgefüllt.
 
 4.
-Skript3 is for part (4) of the task.
-This part was completed by Oleksii Khudoliei, Anastasiia Romanenko and Junyang Su.
+Skript 3 ist für den Teil (4) der Aufgabe.
+Dieser Teil wurde von Oleksii Khudoliei, Anastasiia Romanenko und Junyang Su bearbeitet.
 
-Graphics created from Skript3 are in the file Grafik.pdf in the repository.
-The descriptions are in a seperated pdf called Interpretation.pdf, also in the repository.
+Die aus Skript3 erstellten Grafiken befinden sich in der Datei Grafik.pdf im Repository.
+Die Beschreibungen befinden sich in einer separaten pdf-Datei namens Interpretation.pdf, ebenfalls im Repository.
 
 
-Discussions about particular questions were done in the section 'Discussion' in our repository.
-
+Diskussionen über bestimmte Fragen wurden in der Sektion 'Discussion' in unserem Repository geführt
