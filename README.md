@@ -20,6 +20,9 @@ This part was completed by the whole group.
 Skript3 is for part (4) of the task.
 This part was completed by Oleksii Khudoliei, Anastasiia Romanenko and Junyang Su.
 
+Graphics created from Skript3 are in the file Grafik.pdf in the repository.
+The descriptions are in a seperated pdf called Interpretation.pdf, also in the repository.
+
 
 Discussions about particular questions were done in the section 'Discussion' in our repository.
 
