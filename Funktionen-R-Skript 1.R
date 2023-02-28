@@ -38,14 +38,11 @@ metfnc <- function(data){
 
 #Create function
 katfnc <- function(data){
-  variable = list(data$Interesse_an_Programmieren,data$Interesse_an_Mathematik)
-  for (i in variable){
-    freq <- table(i)
-    profreq <- prop.table(i)
-    e <- unique(i)
-    mod <- sprintf("der Modalwert: %g",e[which.max(tabulate(match(i,e)))])
-    return(list(freq,profreq,mod))
-  }
+  erg <- list()
+  erg$freq <- table(data)
+  e <- unique(data)
+  erg$mod <- e[which.max(tabulate(match(data,e)))]
+  return(erg)
 }
 
 #-----------------------------------------------------------------------------------------------------------
@@ -78,19 +75,19 @@ kat <- function(data){
   data$Interesse_an_Programmieren <- as.numeric(data$Interesse_an_Programmieren)
   data$Studienfach <- as.numeric(data$Studienfach)
 
-corsim<-correlation(data$Interesse_an_Mathematik,data$Studienfach)
+  corsim<-correlation(data$Interesse_an_Mathematik,data$Studienfach)
 
   
   #Korrelation zwischen "Studienfach" und "Interesse_an_Programmieren"
-corsip<-correlation(data$Studienfach, data$Interesse_an_Programmieren)
+  corsip<-correlation(data$Studienfach, data$Interesse_an_Programmieren)
   
   
   #korrelation zwischen "Interesse_an_Mathematik" und "Interesse_an_Programmieren"
-corin<-correlation(data$Interesse_an_Mathematik,data$Interesse_an_Programmieren)
+  corin<-correlation(data$Interesse_an_Mathematik,data$Interesse_an_Programmieren)
   
   return(list(corsim[2],corsip[2],corin[2]))
 }
-  
+
 kat(df)
 
 #-----------------------------------------------------------------------------------------------------------
@@ -105,11 +102,11 @@ kat(df)
 # OUTPUT :
 # Korrelationskoeffizient sowie das Signifikanzniveau.
 
-mat<- function(df){
-  df$Mathe_LK<-ifelse(df$Mathe_LK=="ja",1,0)
+mat <- function(df){
+  df$Mathe_LK <-ifelse(df$Mathe_LK=="ja",1,0)
 
   #Korrelation zwsischen Mathe LK und "Interesse an Mathematik"
-  cor_mathe <-correlation(df$Interesse_an_Mathematik,df$Mathe_LK)
+  cor_mathe <- correlation(df$Interesse_an_Mathematik,df$Mathe_LK)
     
   #Korrelation zwsischen Mathe LK und "Interesse an Programmieren"
   cor_prog <- correlation(df$Interesse_an_Programmieren,df$Mathe_LK) 
