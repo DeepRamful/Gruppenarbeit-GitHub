@@ -8,13 +8,7 @@ source("Funktionen-R-Skript 1.R")
 pdf("Grafiken.pdf")
 
 # Visualisierung fuer Punkt a
-hist(df&Alter,
-main = "Histogramm fuer Alter",
-xlab = "Alter",
-ylab = "Frequenz",
-names_arg = c("mittel","med","1/4Q","3/4Q","min","max","span"，"Var"，"S"),
-             col ="red",
-             horiz = TRUE))
+
 
 #
 # Visualisierung fuer Punkt b
