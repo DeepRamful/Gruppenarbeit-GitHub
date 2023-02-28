@@ -8,31 +8,31 @@ source("Funktionen-R-Skript 1.R")
 pdf("Grafiken.pdf")
 
 # Visualisierung fuer Punkt a
-hist(df&Alter,
+hist(df$Alter,
      main = "Histogramm fuer Alter",
      xlab = "Alter",
      ylab = "Frequenz",
      names_arg = c("mittel","med","1/4Q","3/4Q","min","max","span","Var","S"),
      col ="red",
      horiz = TRUE)
-
+library(ggplot2)
 
 
 # Visualisierung fuer Punkt b
-barplot(df&İnteresse_an_Mathematik, 
+barplot(df$İnteresse_an_Mathematik, 
         xlab = "Interesse",
         ylab = "Frequenz",
         main = "Frequenz fuer Interresse an Mathematik",
         col = c("yellow"),
         names = c("absfreq","relfreq","modal"))
 
-barplot(df&İnteresse_an_Programmieren, 
+barplot(df$İnteresse_an_Programmieren, 
         xlab = "Interesse",
         ylab = "Frequenz",
         main = "Frequenz fuer Interresse an Programmieren",
         col = c("red"),
         names = c("absfreq","relfreq","modal"))
-             
+library(ggplot2)             
 
 
 # Visualisierung fuer Punkt c
