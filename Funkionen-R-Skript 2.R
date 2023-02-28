@@ -5,5 +5,5 @@
 correlation <- function(daten1, daten2) {
   cor <- cor(daten1, daten2)
   cor_test <- cor.test(daten1, daten2)
-  return(c(cor, cor_test))
+  return(list(cor, cor_test))
 }

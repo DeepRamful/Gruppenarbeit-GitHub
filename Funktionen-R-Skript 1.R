@@ -63,29 +63,30 @@ katfnc <- function(data){
 
 #Funktion erstellen
 kat <- function(data){ 
+  # Erstellung von Variable damit die globale Variable nicht beeinflußt wird
+  Studienfach <- data$Studienfach
+
   #Kodierung in Studienfach
-  
-  data$Studienfach[which(data$Studienfach == "Mathe")] <- 1
-  data$Studienfach[which(data$Studienfach == "Statistik")] <- 2
-  data$Studienfach[which(data$Studienfach == "Data Science")] <- 3
-  data$Studienfach[which(data$Studienfach == "Informatik")] <- 4
+  Studienfach[which(Studienfach == "Mathe")] <- 1
+  Studienfach[which(Studienfach == "Statistik")] <- 2
+  Studienfach[which(Studienfach == "Data Science")] <- 3
+  Studienfach[which(Studienfach == "Informatik")] <- 4
   
   #Korrelation zwischen "Studienfach" und "Interesse_an_Mathematik"
   data$Interesse_an_Mathematik <- as.numeric(data$Interesse_an_Mathematik)
   data$Interesse_an_Programmieren <- as.numeric(data$Interesse_an_Programmieren)
-  data$Studienfach <- as.numeric(data$Studienfach)
+  Studienfach <- as.numeric(Studienfach)
 
-  corsim<-correlation(data$Interesse_an_Mathematik,data$Studienfach)
+  corsim<-correlation(data$Interesse_an_Mathematik,Studienfach)
 
-  
   #Korrelation zwischen "Studienfach" und "Interesse_an_Programmieren"
-  corsip<-correlation(data$Studienfach, data$Interesse_an_Programmieren)
+  corsip<-correlation(Studienfach, data$Interesse_an_Programmieren)
   
   
   #korrelation zwischen "Interesse_an_Mathematik" und "Interesse_an_Programmieren"
   corin<-correlation(data$Interesse_an_Mathematik,data$Interesse_an_Programmieren)
   
-  return(list(corsim[2],corsip[2],corin[2]))
+  return(c(corsim, corsip,corin))
 }
 
 kat(df)

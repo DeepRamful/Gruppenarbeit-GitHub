@@ -51,6 +51,20 @@ ggplot(df, aes(fill=Interesse_an_Mathematik, y=quantity2, x=Studienfach)) +
 ggplot(df, aes(fill=Interesse_an_Programmieren, y=quantity2, x=Studienfach)) + 
   geom_bar(position="stack", stat="identity")
 
+correlation_kat_variablen <- kat(df)
+
+correlation_kat_daten <- unlist(c(correlation_kat_variablen[1],
+                            correlation_kat_variablen[3],
+                            correlation_kat_variablen[5]))
+
+print(correlation_kat_daten)
+
+barplot(correlation_kat_daten, main="Korrelation zwischen Variablen",
+        names=c("Mathe & Studienfach",
+        "Prog. & Studienfach",
+        "Prog. & Mathe"),
+        ylab="Hoehe von Korrelation", xlab="Variablen")
+
 # Visualisierung fuer Punkt d
 
 quantity1 <- 100
