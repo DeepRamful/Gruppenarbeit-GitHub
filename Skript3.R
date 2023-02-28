@@ -8,18 +8,18 @@ source("Funktionen-R-Skript 1.R")
 pdf("Grafiken.pdf")
 
 # Visualisierung fuer Punkt a
-hist(Data$Alter,
+hist(df$Alter,
      main = "Histogramm fuer Alter",
      xlab = "Alter",
      ylab = "Frequenz")
-barplot(Data$Alter, main = "Boxplot fuer Alter")
+barplot(df$Alter, main = "Barplot fuer Alter")
 # Visualisierung fuer Punkt b
-barplot(table(Data$İnteresse_an_Mathematik), 
+barplot(table(df$Interesse_an_Mathematik), 
         xlab = "Interesse",
         ylab = "Frequenz",
         main = "Frequenz fuer Interresse an Mathematik")
 
-barplot(table(Data$İnteresse_an_Programmieren), 
+barplot(table(df$Interesse_an_Programmieren), 
         xlab = "Interesse",
         ylab = "Frequenz",
         main = "Frequenz fuer Interresse an Programmieren")

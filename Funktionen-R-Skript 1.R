@@ -44,7 +44,7 @@ katfnc <- function(data){
     profreq <- prop.table(i)
     e <- unique(i)
     mod <- sprintf("der Modalwert: %g",e[which.max(tabulate(match(i,e)))])
-    print(list(freq,profreq,mod))
+    return(list(freq,profreq,mod))
   }
 }
 
@@ -118,7 +118,7 @@ mat<- function(df){
 }
 
 #Add the variable to the function
-print(mat(df)) 
+mat(df) 
 
 #-----------------------------------------------------------------------------------------------------------
 
