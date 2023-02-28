@@ -29,7 +29,7 @@ barplot(df$İnteresse_an_Mathematik,
         names = c("absfreq","relfreq","modal"))
 library(ggplot2)
 quantitb1 <- 100
-ggplot(df, aes(fill=Interesse_an_Mathematik, y=quantityb1, x=df$)) + 
+ggplot(df, aes(fill=Interesse_an_Mathematik, y=quantityb1, x=)) + 
   #geom_bar(position="stack", stat="identity")
 barplot(df$İnteresse_an_Programmieren, 
         xlab = "Interesse",
@@ -39,7 +39,7 @@ barplot(df$İnteresse_an_Programmieren,
         names = c("absfreq","relfreq","modal"))
 library(ggplot2)
 quantitb2 <- 100
-ggplot(df, aes(fill=Interesse_an_Programmierung, y=quantityb2, x=df&)) + 
+ggplot(df, aes(fill=Interesse_an_Programmierung, y=quantityb2, x=)) + 
   #geom_bar(position="stack", stat="identity")
 
 # Visualisierung fuer Punkt c
