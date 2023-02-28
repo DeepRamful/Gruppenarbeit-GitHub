@@ -95,7 +95,7 @@ kat(df)
 
 #d)
 # Die Funktion mat gibt den Korrelationskoeffizienten
-# zwischen einer metrischen und einer kategorialen Variable.
+# zwischen einer metrischen und einer metrischen Variable.
 # Sie verwendet auch eine Hilfsfunktion 'correlation', die 
 # in Funktionen-R-Skript 2.R
 # INPUT :
@@ -106,13 +106,11 @@ kat(df)
 mat <- function(df){
   df$Mathe_LK <-ifelse(df$Mathe_LK=="ja",1,0)
 
-  #Korrelation zwsischen Mathe LK und "Interesse an Mathematik"
-  cor_mathe <- correlation(df$Interesse_an_Mathematik,df$Mathe_LK)
+  #Korrelation zwsischen Mathe LK und Alter
+  cor_Alte <- correlation(df$Interesse_an_Mathematik,df$Mathe_LK)
     
-  #Korrelation zwsischen Mathe LK und "Interesse an Programmieren"
-  cor_prog <- correlation(df$Interesse_an_Programmieren,df$Mathe_LK) 
 
-  return(c(cor_mathe, cor_prog))
+  return(c(cor_Alte))
 }
 
 #Add the variable to the function
