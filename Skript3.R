@@ -36,7 +36,7 @@ barplot(c(stat_math$mod, stat_prog$mod), main="Modalwerte",
         ylab="Modalwert", xlab="Variablen",
         names = c("Interesse an Mathe",
                  "Interesse an Programmierung"))
-#Zum Vergleich zwischen beiden Werten ist auch Balkondiagramm gut zu zeigen.
+#Zum Vergleich zwischen beiden Werten ist auch barplot gut zu zeigen.
 # Visualisierung von Korrelationskoeefizienten von
 # paaren von kategorialen Variablen
 
