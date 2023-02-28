@@ -21,7 +21,7 @@ Skript 3 ist für den Teil (4) der Aufgabe.
 Dieser Teil wurde von Oleksii Khudoliei, Anastasiia Romanenko und Junyang Su bearbeitet.
 
 Die aus Skript3 erstellten Grafiken befinden sich in der Datei Grafik.pdf im Repository.
-Die Beschreibungen befinden sich in einer separaten pdf-Datei namens Interpretation.pdf, ebenfalls im Repository.
+Die Beschreibungen befinden sich in einer separaten pdf-Datei namens Interpretation1.pdf, ebenfalls im Repository.
 
 
 Diskussionen über bestimmte Fragen wurden in der Sektion 'Discussion' in unserem Repository geführt
