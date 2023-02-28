@@ -107,7 +107,7 @@ mat <- function(df){
   df$Mathe_LK <-ifelse(df$Mathe_LK=="ja",1,0)
 
   #Korrelation zwsischen Mathe LK und Alter
-  cor_Alte <- correlation(df$Interesse_an_Mathematik,df$Mathe_LK)
+  cor_Alte <- correlation(df$Alter,df$Mathe_LK)
     
 
   return(c(cor_Alte))
