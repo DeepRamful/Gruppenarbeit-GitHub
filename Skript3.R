@@ -14,7 +14,7 @@ xlab = "Alter",
 ylab = "Frequenz",
 names_arg = c("mittel","med","1/4Q","3/4Q","min","max","span"，"Var"，"S"),
              col ="red",
-             horiz = TRUE)
+             horiz = TRUE))
 
 #
 # Visualisierung fuer Punkt b
